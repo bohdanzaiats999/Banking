@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-namespace Banking.BusinessLogic
+namespace Banking.Model
 {
-    class UserContext:DbContext 
+    class UserContext : DbContext 
     {
         public DbSet<User> Users { get; set; }
     }

@@ -1,4 +1,4 @@
-﻿namespace Banking
+﻿namespace Banking.Forms
 {
     partial class LoginForm
     {
@@ -31,7 +31,7 @@
             this.LoginTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.RegistrationButton = new System.Windows.Forms.Button();
+            this.OpenBillButton = new System.Windows.Forms.Button();
             this.LoginLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -59,15 +59,17 @@
             this.LoginButton.TabIndex = 2;
             this.LoginButton.Text = "Log In";
             this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // RegistrationButton
+            // OpenBillButton
             // 
-            this.RegistrationButton.Location = new System.Drawing.Point(153, 277);
-            this.RegistrationButton.Name = "RegistrationButton";
-            this.RegistrationButton.Size = new System.Drawing.Size(75, 23);
-            this.RegistrationButton.TabIndex = 3;
-            this.RegistrationButton.Text = "Registration";
-            this.RegistrationButton.UseVisualStyleBackColor = true;
+            this.OpenBillButton.Location = new System.Drawing.Point(153, 277);
+            this.OpenBillButton.Name = "OpenBillButton";
+            this.OpenBillButton.Size = new System.Drawing.Size(75, 23);
+            this.OpenBillButton.TabIndex = 3;
+            this.OpenBillButton.Text = "Open Bill";
+            this.OpenBillButton.UseVisualStyleBackColor = true;
+            this.OpenBillButton.Click += new System.EventHandler(this.OpenBillButton_Click);
             // 
             // LoginLabel
             // 
@@ -94,7 +96,7 @@
             this.ClientSize = new System.Drawing.Size(386, 313);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.LoginLabel);
-            this.Controls.Add(this.RegistrationButton);
+            this.Controls.Add(this.OpenBillButton);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.LoginTextBox);
@@ -111,7 +113,7 @@
         private System.Windows.Forms.TextBox LoginTextBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Button LoginButton;
-        private System.Windows.Forms.Button RegistrationButton;
+        private System.Windows.Forms.Button OpenBillButton;
         private System.Windows.Forms.Label LoginLabel;
         private System.Windows.Forms.Label PasswordLabel;
     }

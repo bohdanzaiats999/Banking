@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Banking
+namespace Banking.Forms
 {
-    public partial class LoginForm : Form
+    public partial class RefillForm : Form
     {
-        public LoginForm()
+        public RefillForm()
         {
             InitializeComponent();
         }
+
     }
 }
