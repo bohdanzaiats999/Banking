@@ -1,0 +1,14 @@
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\bin\Debug\Banking.exe.config
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\bin\Debug\Banking.exe
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\bin\Debug\Banking.pdb
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\bin\Debug\EntityFramework.dll
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\bin\Debug\EntityFramework.xml
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.csprojResolveAssemblyReference.cache
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Properties.Resources.resources
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.csproj.GenerateResource.Cache
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.exe
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.pdb
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.formLogin.resources
+c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.LoginForm.resources
