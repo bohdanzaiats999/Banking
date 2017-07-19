@@ -1,6 +1,6 @@
 ﻿namespace Banking.Forms
 {
-    partial class RegistrationForm
+    partial class OpenBillForm
     {
         /// <summary>
         /// Required designer variable.

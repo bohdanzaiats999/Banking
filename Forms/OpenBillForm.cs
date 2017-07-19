@@ -7,22 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Banking.BusinessLogic;
 
 namespace Banking.Forms
 {
-    public partial class RegistrationForm : Form
+    public partial class OpenBillForm : Form
     {
-        public RegistrationForm()
+        private CRUD crud;
+        public OpenBillForm(CRUD crud)
         {
             InitializeComponent();
+            this.crud = crud;
         }
 
         private void OpenBillButton_Click(object sender, EventArgs e)
         {
-            BusinessLogic.CRUD crud = new BusinessLogic.CRUD();
-            crud.Registration(LoginTextBox.Text, PasswordTextBox.Text);
-
-
+            if (crud.OpenBill(LoginTextBox.Text, PasswordTextBox.Text))
+            {
+                new ControlPanelForm(crud).Show();
+            }
         }
     }
 }

@@ -7,15 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Banking.BusinessLogic;
 
 namespace Banking.Forms
 {
     public partial class RefillForm : Form
     {
-        public RefillForm()
+        private readonly CRUD crud;
+        public RefillForm(CRUD crud)
         {
             InitializeComponent();
+            this.crud = crud;
         }
 
+        private void RefillTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RefillButton_Click(object sender, EventArgs e)
+        {
+            crud.Refill(RefillTextBox.Text);
+            this.Hide();
+            new ControlPanelForm(crud).Show();
+            
+        }
     }
 }

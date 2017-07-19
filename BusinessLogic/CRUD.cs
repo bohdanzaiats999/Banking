@@ -6,47 +6,66 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Banking.Model;
 using System.Windows.Forms;
+using Banking.DAL;
+using System.Security.Cryptography;
 
 namespace Banking.BusinessLogic
 {
     public class CRUD
     {
-        UserContext context = new UserContext();
-        User log;
+        private User user;
+        private readonly UnitOfWork db;
+
+        public CRUD()
+        {
+            db = new UnitOfWork();
+        }
 
 
         public bool LogIn(string login, string password)
         {
-            log = context.Users.FirstOrDefault(a => a.Login == login);
-            if (log != null && login == log.Login && password == log.Password)
+            user = db.Repository<User>().GetByLogin(login);
+            if (user != null && login == user.Login && password == user.Password)
             {
                 return true;
             }
             return false;
         }
 
-        public bool Registration(string login, string password)
+        public bool OpenBill(string login, string password)
         {
+            
             if (login != "" & password != "")
             {
 
-                log = context.Users.FirstOrDefault(a=>a.Login == login);
+                user = db.Repository<User>().GetByLogin(login);
 
-                if (log == null)
+                if (user == null)
                 {
-                    context.Users.Add(new User { Login = login, Password = password, Money = 0 });
-                    context.SaveChanges();
+                    db.Repository<User>().Insert(new User {Login = login, Password = password, Money = 0});
+                    db.SaveChanges();
                     MessageBox.Show("Registration was successful");
-                    
                     return true;
                 }
                 else
                 {
                     MessageBox.Show("This Login already exist");
                 }
-
             }
             return false;
+        }
+
+        public void Refill(string amount)
+        {
+            user.Money += int.Parse(amount);
+            db.Repository<User>().Update(user);
+            db.SaveChanges();
+
+        }
+
+        public string AccountStatus()
+        {
+            return user.Money.ToString();
         }
     }
 }
