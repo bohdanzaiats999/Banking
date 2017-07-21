@@ -14,3 +14,5 @@ C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Bank
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.ControlPanelForm.resources
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.RefillForm.resources
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.OpenBillForm.resources
+C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.GetCashForm.resources
+C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.ToSendMoneyForm.resources

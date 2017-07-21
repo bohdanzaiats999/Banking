@@ -35,5 +35,17 @@ namespace Banking.Forms
             this.Hide();
             new LoginForm().Show();
         }
+
+        private void GetCashButton_Click(object sender, EventArgs e)
+        {
+            new GetCashForm(crud).Show();
+            this.Hide();
+        }
+
+        private void ToSendMoneyButton_Click(object sender, EventArgs e)
+        {
+            new ToSendMoneyForm(crud).Show();
+            this.Hide();
+        }
     }
 }

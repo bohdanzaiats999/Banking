@@ -21,20 +21,41 @@ namespace Banking.BusinessLogic
             db = new UnitOfWork();
         }
 
-
         public bool LogIn(string login, string password)
         {
             user = db.Repository<User>().GetByLogin(login);
-            if (user != null && login == user.Login && password == user.Password)
+
+            if (user != null)
             {
+                AesCrypt aes = new AesCrypt();
+                string descryptedPassword = aes.DecryptAes(user.Password);
+
+                if (password == descryptedPassword)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool GetCash(string amount)
+        {
+            int money = int.Parse(amount);
+            if (amount != "" && money > 0 && money <= user.Money)
+            {
+                user.Money -= money;
+                db.Repository<User>().Update(user);
+                db.SaveChanges();
+                MessageBox.Show("The amount of money has been successfully withdrawn from the account");
                 return true;
             }
+            MessageBox.Show("Insufficient funds on the account");
             return false;
         }
 
         public bool OpenBill(string login, string password)
         {
-            
+
             if (login != "" & password != "")
             {
 
@@ -42,9 +63,12 @@ namespace Banking.BusinessLogic
 
                 if (user == null)
                 {
-                    db.Repository<User>().Insert(new User {Login = login, Password = password, Money = 0});
+                    AesCrypt aes = new AesCrypt();
+                    string encryptedPassword = aes.EncryptAes(password);
+                    db.Repository<User>().Insert(new User {Login = login, Password = encryptedPassword, Money = 0});
                     db.SaveChanges();
                     MessageBox.Show("Registration was successful");
+                    user = db.Repository<User>().GetByLogin(login);
                     return true;
                 }
                 else
@@ -63,9 +87,32 @@ namespace Banking.BusinessLogic
 
         }
 
+        public bool ToSendMoney(string receiverLogin, string amount)
+        {
+            if (receiverLogin != "" && amount!= "")
+            {
+                User receiver = db.Repository<User>().GetByLogin(receiverLogin);
+
+                int money = int.Parse(amount);
+                if (receiver != null && user.Money >= money && money > 0)
+                {
+                    receiver.Money += money;
+                    user.Money -= money;
+                    db.Repository<User>().Update(user);
+                    db.Repository<User>().Update(receiver);
+                    db.SaveChanges();
+                    MessageBox.Show("Operation was successful");
+                    return true;
+                }
+                MessageBox.Show("User not found or no enough money on account"); 
+            }
+            return false;
+        }
+
         public string AccountStatus()
         {
             return user.Money.ToString();
         }
+
     }
 }

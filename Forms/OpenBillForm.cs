@@ -25,6 +25,7 @@ namespace Banking.Forms
             if (crud.OpenBill(LoginTextBox.Text, PasswordTextBox.Text))
             {
                 new ControlPanelForm(crud).Show();
+                this.Hide();
             }
         }
     }

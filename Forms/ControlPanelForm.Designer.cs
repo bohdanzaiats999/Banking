@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.RefillButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ToSendMoneyButton = new System.Windows.Forms.Button();
+            this.GetCashButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.AccountStatusLabel = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
@@ -46,23 +46,25 @@
             this.RefillButton.UseVisualStyleBackColor = true;
             this.RefillButton.Click += new System.EventHandler(this.RefillButton_Click);
             // 
-            // button2
+            // ToSendMoneyButton
             // 
-            this.button2.Location = new System.Drawing.Point(51, 254);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 46);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ToSendMoneyButton.Location = new System.Drawing.Point(51, 254);
+            this.ToSendMoneyButton.Name = "ToSendMoneyButton";
+            this.ToSendMoneyButton.Size = new System.Drawing.Size(129, 46);
+            this.ToSendMoneyButton.TabIndex = 1;
+            this.ToSendMoneyButton.Text = "To send money";
+            this.ToSendMoneyButton.UseVisualStyleBackColor = true;
+            this.ToSendMoneyButton.Click += new System.EventHandler(this.ToSendMoneyButton_Click);
             // 
-            // button3
+            // GetCashButton
             // 
-            this.button3.Location = new System.Drawing.Point(180, 203);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 46);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.GetCashButton.Location = new System.Drawing.Point(180, 203);
+            this.GetCashButton.Name = "GetCashButton";
+            this.GetCashButton.Size = new System.Drawing.Size(129, 46);
+            this.GetCashButton.TabIndex = 2;
+            this.GetCashButton.Text = "Get cash";
+            this.GetCashButton.UseVisualStyleBackColor = true;
+            this.GetCashButton.Click += new System.EventHandler(this.GetCashButton_Click);
             // 
             // button4
             // 
@@ -101,8 +103,8 @@
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AccountStatusLabel);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.GetCashButton);
+            this.Controls.Add(this.ToSendMoneyButton);
             this.Controls.Add(this.RefillButton);
             this.Name = "ControlPanelForm";
             this.Text = "Control Panel";
@@ -114,8 +116,8 @@
         #endregion
 
         private System.Windows.Forms.Button RefillButton;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ToSendMoneyButton;
+        private System.Windows.Forms.Button GetCashButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label AccountStatusLabel;
         private System.Windows.Forms.Button BackButton;

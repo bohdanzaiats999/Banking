@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\AesCrypt.cs" />
     <Compile Include="BusinessLogic\CRUD.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\IUnitOfWork.cs" />
@@ -63,11 +64,23 @@
     <Compile Include="Forms\ControlPanelForm.Designer.cs">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GetCashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GetCashForm.Designer.cs">
+      <DependentUpon>GetCashForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RefillForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\RefillForm.Designer.cs">
       <DependentUpon>RefillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ToSendMoneyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ToSendMoneyForm.Designer.cs">
+      <DependentUpon>ToSendMoneyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserContext.cs" />
@@ -88,11 +101,17 @@
     <EmbeddedResource Include="Forms\ControlPanelForm.resx">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GetCashForm.resx">
+      <DependentUpon>GetCashForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RefillForm.resx">
       <DependentUpon>RefillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ToSendMoneyForm.resx">
+      <DependentUpon>ToSendMoneyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
