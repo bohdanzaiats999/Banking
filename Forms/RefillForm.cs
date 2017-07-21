@@ -31,15 +31,15 @@ namespace Banking.Forms
         private void RefillButton_Click(object sender, EventArgs e)
         {
             crud.Refill(RefillTextBox.Text);
-            this.Hide();
             new ControlPanelForm(crud).Show();
+            this.Close();
             
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
             new ControlPanelForm(crud).Show();
-            this.Hide();
+            this.Close();
         }
 
     }

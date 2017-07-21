@@ -33,15 +33,15 @@ namespace Banking.Forms
         {
             if (crud.ToSendMoney(ReceiverTextBox.Text, AmountTextBox.Text))
             {
-                this.Hide();
                 new ControlPanelForm(crud).Show();
+                this.Close();
             }
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             new ControlPanelForm(crud).Show();
+            this.Close();
         }
     }
 }

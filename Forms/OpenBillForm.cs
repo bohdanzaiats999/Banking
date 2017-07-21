@@ -25,14 +25,14 @@ namespace Banking.Forms
             if (crud.OpenBill(LoginTextBox.Text, PasswordTextBox.Text))
             {
                 new ControlPanelForm(crud).Show();
-                this.Hide();
+                this.Close();
             }
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
             new LoginForm().Show();
-            this.Hide();
+            this.Close();
         }
 
     }

@@ -32,15 +32,15 @@ namespace Banking.Forms
         {
             if (crud.GetCash(GetCashTextBox.Text))
             {
-                this.Hide();
                 new ControlPanelForm(crud).Show();
+                this.Close();
             }
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             new ControlPanelForm(crud).Show();
+            this.Close();
         }
     }
 }

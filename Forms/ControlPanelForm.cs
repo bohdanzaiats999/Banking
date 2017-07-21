@@ -23,37 +23,36 @@ namespace Banking.Forms
 
         private void RefillButton_Click(object sender, EventArgs e)
         {
-            RefillForm form = new RefillForm(crud);
-            form.Show();
-            this.Hide();
+            new RefillForm(crud).Show();
+            this.Close();
             
             
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             new LoginForm().Show();
+            this.Close();  
         }
 
         private void GetCashButton_Click(object sender, EventArgs e)
         {
             new GetCashForm(crud).Show();
-            this.Hide();
+            this.Close();
         }
 
         private void ToSendMoneyButton_Click(object sender, EventArgs e)
         {
             new ToSendMoneyForm(crud).Show();
-            this.Hide();
+            this.Close();
         }
 
         private void CloseAnAccountButton_Click(object sender, EventArgs e)
         {
             if (crud.CloseAnAccount())
             {
-                this.Hide();
                 new LoginForm().Show();
+                this.Close();     
             }
             
         }
