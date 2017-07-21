@@ -47,5 +47,15 @@ namespace Banking.Forms
             new ToSendMoneyForm(crud).Show();
             this.Hide();
         }
+
+        private void CloseAnAccountButton_Click(object sender, EventArgs e)
+        {
+            if (crud.CloseAnAccount())
+            {
+                this.Hide();
+                new LoginForm().Show();
+            }
+            
+        }
     }
 }

@@ -35,5 +35,12 @@ namespace Banking.Forms
             new ControlPanelForm(crud).Show();
             
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            new ControlPanelForm(crud).Show();
+            this.Hide();
+        }
+
     }
 }

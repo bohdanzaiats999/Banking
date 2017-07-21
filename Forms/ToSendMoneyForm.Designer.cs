@@ -38,24 +38,26 @@
             // 
             // ReceiverTextBox
             // 
-            this.ReceiverTextBox.Location = new System.Drawing.Point(113, 131);
+            this.ReceiverTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.ReceiverTextBox.Location = new System.Drawing.Point(107, 110);
             this.ReceiverTextBox.Name = "ReceiverTextBox";
-            this.ReceiverTextBox.Size = new System.Drawing.Size(188, 20);
+            this.ReceiverTextBox.Size = new System.Drawing.Size(188, 30);
             this.ReceiverTextBox.TabIndex = 0;
             // 
             // AmountTextBox
             // 
-            this.AmountTextBox.Location = new System.Drawing.Point(155, 181);
+            this.AmountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.AmountTextBox.Location = new System.Drawing.Point(149, 216);
             this.AmountTextBox.Name = "AmountTextBox";
-            this.AmountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.AmountTextBox.Size = new System.Drawing.Size(100, 30);
             this.AmountTextBox.TabIndex = 1;
             this.AmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountTextBox_KeyPress);
             // 
             // SendMoneyButton
             // 
-            this.SendMoneyButton.Location = new System.Drawing.Point(139, 269);
+            this.SendMoneyButton.Location = new System.Drawing.Point(152, 296);
             this.SendMoneyButton.Name = "SendMoneyButton";
-            this.SendMoneyButton.Size = new System.Drawing.Size(116, 46);
+            this.SendMoneyButton.Size = new System.Drawing.Size(97, 33);
             this.SendMoneyButton.TabIndex = 2;
             this.SendMoneyButton.Text = "Send Money";
             this.SendMoneyButton.UseVisualStyleBackColor = true;
@@ -64,26 +66,30 @@
             // ReceiverLabel
             // 
             this.ReceiverLabel.AutoSize = true;
-            this.ReceiverLabel.Location = new System.Drawing.Point(178, 115);
+            this.ReceiverLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ReceiverLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.ReceiverLabel.Location = new System.Drawing.Point(143, 76);
             this.ReceiverLabel.Name = "ReceiverLabel";
-            this.ReceiverLabel.Size = new System.Drawing.Size(50, 13);
+            this.ReceiverLabel.Size = new System.Drawing.Size(130, 31);
             this.ReceiverLabel.TabIndex = 3;
-            this.ReceiverLabel.Text = "Receiver";
+            this.ReceiverLabel.Text = "Receiver:";
             // 
             // AmountLabel
             // 
             this.AmountLabel.AutoSize = true;
-            this.AmountLabel.Location = new System.Drawing.Point(178, 161);
+            this.AmountLabel.BackColor = System.Drawing.Color.Transparent;
+            this.AmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.AmountLabel.Location = new System.Drawing.Point(143, 182);
             this.AmountLabel.Name = "AmountLabel";
-            this.AmountLabel.Size = new System.Drawing.Size(43, 13);
+            this.AmountLabel.Size = new System.Drawing.Size(115, 31);
             this.AmountLabel.TabIndex = 4;
-            this.AmountLabel.Text = "Amount";
+            this.AmountLabel.Text = "Amount:";
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(13, 306);
+            this.BackButton.Location = new System.Drawing.Point(13, 302);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(75, 23);
+            this.BackButton.Size = new System.Drawing.Size(75, 27);
             this.BackButton.TabIndex = 5;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
@@ -93,6 +99,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Banking.Properties.Resources._48cba3ab;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(430, 341);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AmountLabel);
@@ -101,7 +109,8 @@
             this.Controls.Add(this.AmountTextBox);
             this.Controls.Add(this.ReceiverTextBox);
             this.Name = "ToSendMoneyForm";
-            this.Text = "ToSendMoneyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "To Send Money";
             this.ResumeLayout(false);
             this.PerformLayout();
 

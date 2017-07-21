@@ -28,5 +28,12 @@ namespace Banking.Forms
                 this.Hide();
             }
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            new LoginForm().Show();
+            this.Hide();
+        }
+
     }
 }

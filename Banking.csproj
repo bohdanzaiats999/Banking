@@ -121,6 +121,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\OpenBillForm.resx">
       <DependentUpon>OpenBillForm.cs</DependentUpon>
@@ -138,6 +139,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\14434567631pogudx53mvhvit3di.c93156d9.jpeg" />
+    <Content Include="Images\29015.jpg" />
+    <Content Include="Images\48cba3ab.jpg" />
+    <Content Include="Images\CHto-takoe-internet-banking-ris-2.jpg" />
+    <Content Include="Images\icon-web%402x.jpg" />
+    <Content Include="Images\Internet_banking1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

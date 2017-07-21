@@ -89,7 +89,7 @@ namespace Banking.BusinessLogic
 
         public bool ToSendMoney(string receiverLogin, string amount)
         {
-            if (receiverLogin != "" && amount!= "")
+            if (receiverLogin != "" && amount != "")
             {
                 User receiver = db.Repository<User>().GetByLogin(receiverLogin);
 
@@ -104,14 +104,29 @@ namespace Banking.BusinessLogic
                     MessageBox.Show("Operation was successful");
                     return true;
                 }
-                MessageBox.Show("User not found or no enough money on account"); 
+                MessageBox.Show("User not found or no enough money on account");
+            }
+            return false;
+        }
+
+        public bool CloseAnAccount()
+        {
+
+            if (MessageBox.Show(String.Format(
+                        "On your account: {0} $,are you sure you want to close the account?", user.Money),
+                    "Close the account?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                db.Repository<User>().Delete(user);
+                db.SaveChanges();
+                MessageBox.Show("Operation was successful");
+                return true;
             }
             return false;
         }
 
         public string AccountStatus()
         {
-            return user.Money.ToString();
+            return user.Money.ToString() + " $";
         }
 
     }
