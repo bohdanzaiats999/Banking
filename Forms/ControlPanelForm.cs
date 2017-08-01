@@ -8,53 +8,46 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Banking.BusinessLogic;
+using Banking.DAL;
 
 namespace Banking.Forms
 {
     public partial class ControlPanelForm : Form
     {
-        private CRUD crud;
-        public ControlPanelForm(CRUD crud)
+        private BankingOperations bankingOperations;
+
+        public ControlPanelForm(BankingOperations bankingOperations)
         {
             InitializeComponent();
-            this.crud = crud;
-            AccountStatusLabel.Text = this.crud.AccountStatus();
+            this.bankingOperations = bankingOperations;
         }
 
-        private void RefillButton_Click(object sender, EventArgs e)
+        private void ChooseAccountСomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            new RefillForm(crud).Show();
+            switch (ChooseAccountСomboBox.SelectedIndex)
+            {
+                case 0:
+                    bankingOperations.FillCurrentAccountComboBox(ChooseNumberСomboBox);
+                    break;
+                case 1:
+                    bankingOperations.FillDepositAccountComboBox(ChooseNumberСomboBox);
+                    break;
+                case 2:
+                    bankingOperations.FillCreditAccountComboBox(ChooseNumberСomboBox);
+                    break;
+            }
+        }
+
+        private void AddAccountButton_Click(object sender, EventArgs e)
+        {
             this.Close();
-            
-            
+            new AddAccountForm(bankingOperations).Show();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
+            this.Close();
             new LoginForm().Show();
-            this.Close();  
-        }
-
-        private void GetCashButton_Click(object sender, EventArgs e)
-        {
-            new GetCashForm(crud).Show();
-            this.Close();
-        }
-
-        private void ToSendMoneyButton_Click(object sender, EventArgs e)
-        {
-            new ToSendMoneyForm(crud).Show();
-            this.Close();
-        }
-
-        private void CloseAnAccountButton_Click(object sender, EventArgs e)
-        {
-            if (crud.CloseAnAccount())
-            {
-                new LoginForm().Show();
-                this.Close();     
-            }
-            
         }
     }
 }

@@ -11,16 +11,16 @@ namespace Banking.DAL
     {
         private bool disposed;
 
-        private readonly UserContext context;
+        private readonly BankingContext context;
 
         private Dictionary<string, object> repositories;
 
         public UnitOfWork()
         {
-            this.context = new UserContext();
+            this.context = new BankingContext();
         }
 
-        public UnitOfWork(UserContext context)
+        public UnitOfWork(BankingContext context)
         {
             this.context = context;
         }

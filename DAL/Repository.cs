@@ -12,13 +12,13 @@ namespace Banking.DAL
 {
     class Repository<T> : IRepository<T> where T : class
     {
-        private readonly UserContext context;
+        private readonly BankingContext context;
 
         private string errorMessage = string.Empty;
 
         private IDbSet<T> entities;
 
-        public Repository(UserContext context)
+        public Repository(BankingContext context)
         {
             this.context = context;
             this.entities = context.Set<T>();
@@ -102,6 +102,35 @@ namespace Banking.DAL
         public User GetByLogin(string login)
         {
             return context.Set<User>().FirstOrDefault(a => a.Login == login);
+        }
+
+        public IQueryable GetById(int id)
+        {
+            return context.Set<CurrentAccount>().Where(a => a.UserId == id);
+        }
+
+        public bool IsNumberAccount(string numberAccunt)
+        {
+            return context.Set<CurrentAccount>().Any(a => a.Number == numberAccunt);
+
+        }
+
+        public IList<CurrentAccount> GetCurrentAccountsListById(int userId)
+        {
+
+            return context.CurrentAccounts.Where(a => a.UserId == userId).ToList();
+        }
+
+        public IList<DepositAccount> GetDepositAccountsListById(int userId)
+        {
+            return context.DepositAccounts.Where(a => a.UserId == userId).ToList();
+
+        }
+
+        public IList<CreditAccount> GetCreditAccountsListById(int userId)
+        {
+            return context.CreditAccounts.Where(a => a.UserId == userId).ToList();
+
         }
     }
 }

@@ -11,6 +11,13 @@ namespace Banking.Model
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public int Money { get; set; }
+        public ICollection<CurrentAccount> CurrentAccounts { get; set; }
+        public ICollection<DepositAccount> DepositCreditAccounts { get; set; }
+
+        public User()
+        {
+            CurrentAccounts = new List<CurrentAccount>();
+            DepositCreditAccounts = new List<DepositAccount>();
+        }
     }
 }

@@ -28,103 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RefillButton = new System.Windows.Forms.Button();
-            this.ToSendMoneyButton = new System.Windows.Forms.Button();
-            this.GetCashButton = new System.Windows.Forms.Button();
-            this.CloseAnAccountButton = new System.Windows.Forms.Button();
-            this.AccountStatusLabel = new System.Windows.Forms.Label();
+            this.ChooseAccountСomboBox = new System.Windows.Forms.ComboBox();
+            this.ChooseAccuntLabel = new System.Windows.Forms.Label();
+            this.ChooseNumberСomboBox = new System.Windows.Forms.ComboBox();
+            this.ChooseNumberLabel = new System.Windows.Forms.Label();
+            this.AddAccountButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
+            this.ChooseAccountGroupBox = new System.Windows.Forms.GroupBox();
+            this.ChooseAccountGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // RefillButton
+            // ChooseAccountСomboBox
             // 
-            this.RefillButton.Location = new System.Drawing.Point(51, 90);
-            this.RefillButton.Name = "RefillButton";
-            this.RefillButton.Size = new System.Drawing.Size(129, 38);
-            this.RefillButton.TabIndex = 0;
-            this.RefillButton.Text = "Refill";
-            this.RefillButton.UseVisualStyleBackColor = true;
-            this.RefillButton.Click += new System.EventHandler(this.RefillButton_Click);
+            this.ChooseAccountСomboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Current",
+            "Deposit",
+            "Credit"});
+            this.ChooseAccountСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ChooseAccountСomboBox.FormattingEnabled = true;
+            this.ChooseAccountСomboBox.Items.AddRange(new object[] {
+            "Current",
+            "Deposit",
+            "Credit"});
+            this.ChooseAccountСomboBox.Location = new System.Drawing.Point(6, 47);
+            this.ChooseAccountСomboBox.Name = "ChooseAccountСomboBox";
+            this.ChooseAccountСomboBox.Size = new System.Drawing.Size(181, 21);
+            this.ChooseAccountСomboBox.TabIndex = 0;
+            this.ChooseAccountСomboBox.TabStop = false;
+            this.ChooseAccountСomboBox.Tag = "";
+            this.ChooseAccountСomboBox.SelectedIndexChanged += new System.EventHandler(this.ChooseAccountСomboBox_SelectedIndexChanged);
             // 
-            // ToSendMoneyButton
+            // ChooseAccuntLabel
             // 
-            this.ToSendMoneyButton.Location = new System.Drawing.Point(51, 158);
-            this.ToSendMoneyButton.Name = "ToSendMoneyButton";
-            this.ToSendMoneyButton.Size = new System.Drawing.Size(129, 38);
-            this.ToSendMoneyButton.TabIndex = 1;
-            this.ToSendMoneyButton.Text = "To send money";
-            this.ToSendMoneyButton.UseVisualStyleBackColor = true;
-            this.ToSendMoneyButton.Click += new System.EventHandler(this.ToSendMoneyButton_Click);
+            this.ChooseAccuntLabel.AutoSize = true;
+            this.ChooseAccuntLabel.Location = new System.Drawing.Point(7, 28);
+            this.ChooseAccuntLabel.Name = "ChooseAccuntLabel";
+            this.ChooseAccuntLabel.Size = new System.Drawing.Size(47, 13);
+            this.ChooseAccuntLabel.TabIndex = 1;
+            this.ChooseAccuntLabel.Text = "Account";
             // 
-            // GetCashButton
+            // ChooseNumberСomboBox
             // 
-            this.GetCashButton.Location = new System.Drawing.Point(294, 90);
-            this.GetCashButton.Name = "GetCashButton";
-            this.GetCashButton.Size = new System.Drawing.Size(129, 38);
-            this.GetCashButton.TabIndex = 2;
-            this.GetCashButton.Text = "Get cash";
-            this.GetCashButton.UseVisualStyleBackColor = true;
-            this.GetCashButton.Click += new System.EventHandler(this.GetCashButton_Click);
+            this.ChooseNumberСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ChooseNumberСomboBox.FormattingEnabled = true;
+            this.ChooseNumberСomboBox.Location = new System.Drawing.Point(239, 47);
+            this.ChooseNumberСomboBox.Name = "ChooseNumberСomboBox";
+            this.ChooseNumberСomboBox.Size = new System.Drawing.Size(181, 21);
+            this.ChooseNumberСomboBox.TabIndex = 2;
+            this.ChooseNumberСomboBox.TabStop = false;
             // 
-            // CloseAnAccountButton
+            // ChooseNumberLabel
             // 
-            this.CloseAnAccountButton.Location = new System.Drawing.Point(294, 157);
-            this.CloseAnAccountButton.Name = "CloseAnAccountButton";
-            this.CloseAnAccountButton.Size = new System.Drawing.Size(129, 39);
-            this.CloseAnAccountButton.TabIndex = 3;
-            this.CloseAnAccountButton.Text = "Close an account";
-            this.CloseAnAccountButton.UseVisualStyleBackColor = true;
-            this.CloseAnAccountButton.Click += new System.EventHandler(this.CloseAnAccountButton_Click);
+            this.ChooseNumberLabel.AutoSize = true;
+            this.ChooseNumberLabel.Location = new System.Drawing.Point(248, 27);
+            this.ChooseNumberLabel.Name = "ChooseNumberLabel";
+            this.ChooseNumberLabel.Size = new System.Drawing.Size(44, 13);
+            this.ChooseNumberLabel.TabIndex = 4;
+            this.ChooseNumberLabel.Text = "Number";
             // 
-            // AccountStatusLabel
+            // AddAccountButton
             // 
-            this.AccountStatusLabel.AutoSize = true;
-            this.AccountStatusLabel.BackColor = System.Drawing.Color.Transparent;
-            this.AccountStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.AccountStatusLabel.Location = new System.Drawing.Point(198, 33);
-            this.AccountStatusLabel.Name = "AccountStatusLabel";
-            this.AccountStatusLabel.Size = new System.Drawing.Size(75, 46);
-            this.AccountStatusLabel.TabIndex = 4;
-            this.AccountStatusLabel.Text = "0 $";
+            this.AddAccountButton.Location = new System.Drawing.Point(656, 85);
+            this.AddAccountButton.Name = "AddAccountButton";
+            this.AddAccountButton.Size = new System.Drawing.Size(101, 29);
+            this.AddAccountButton.TabIndex = 5;
+            this.AddAccountButton.Text = "Add Account";
+            this.AddAccountButton.UseVisualStyleBackColor = true;
+            this.AddAccountButton.Click += new System.EventHandler(this.AddAccountButton_Click);
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(10, 230);
+            this.BackButton.Location = new System.Drawing.Point(12, 400);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(75, 32);
-            this.BackButton.TabIndex = 5;
+            this.BackButton.Size = new System.Drawing.Size(75, 29);
+            this.BackButton.TabIndex = 6;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
+            // ChooseAccountGroupBox
+            // 
+            this.ChooseAccountGroupBox.Controls.Add(this.ChooseAccountСomboBox);
+            this.ChooseAccountGroupBox.Controls.Add(this.ChooseAccuntLabel);
+            this.ChooseAccountGroupBox.Controls.Add(this.ChooseNumberСomboBox);
+            this.ChooseAccountGroupBox.Controls.Add(this.ChooseNumberLabel);
+            this.ChooseAccountGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ChooseAccountGroupBox.Location = new System.Drawing.Point(12, 4);
+            this.ChooseAccountGroupBox.Name = "ChooseAccountGroupBox";
+            this.ChooseAccountGroupBox.Size = new System.Drawing.Size(430, 96);
+            this.ChooseAccountGroupBox.TabIndex = 7;
+            this.ChooseAccountGroupBox.TabStop = false;
+            this.ChooseAccountGroupBox.Text = "Choose Account";
             // 
             // ControlPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Banking.Properties.Resources._29015;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(455, 272);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.ClientSize = new System.Drawing.Size(769, 441);
+            this.Controls.Add(this.ChooseAccountGroupBox);
             this.Controls.Add(this.BackButton);
-            this.Controls.Add(this.AccountStatusLabel);
-            this.Controls.Add(this.CloseAnAccountButton);
-            this.Controls.Add(this.GetCashButton);
-            this.Controls.Add(this.ToSendMoneyButton);
-            this.Controls.Add(this.RefillButton);
+            this.Controls.Add(this.AddAccountButton);
             this.Name = "ControlPanelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Control Panel";
+            this.Text = "ControlPanelForm";
+            this.ChooseAccountGroupBox.ResumeLayout(false);
+            this.ChooseAccountGroupBox.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button RefillButton;
-        private System.Windows.Forms.Button ToSendMoneyButton;
-        private System.Windows.Forms.Button GetCashButton;
-        private System.Windows.Forms.Button CloseAnAccountButton;
-        private System.Windows.Forms.Label AccountStatusLabel;
+        private System.Windows.Forms.ComboBox ChooseAccountСomboBox;
+        private System.Windows.Forms.Label ChooseAccuntLabel;
+        private System.Windows.Forms.ComboBox ChooseNumberСomboBox;
+        private System.Windows.Forms.Label ChooseNumberLabel;
+        private System.Windows.Forms.Button AddAccountButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.GroupBox ChooseAccountGroupBox;
     }
 }

@@ -13,20 +13,20 @@ namespace Banking.Forms
 {
     public partial class LoginForm : Form
     {
-        private CRUD crud;
+        private BankingOperations bankingOperations;
         
         public LoginForm()
         {
             InitializeComponent();
-            crud = new CRUD();
+            bankingOperations = new BankingOperations();
         }
          
         private void LoginButton_Click(object sender, EventArgs e)
         {
 
-            if (crud.LogIn(LoginTextBox.Text, PasswordTextBox.Text))
+            if (bankingOperations.IsLogIn(LoginTextBox.Text, PasswordTextBox.Text))
             {
-                new ControlPanelForm(crud).Show();
+                new ControlPanelForm(bankingOperations).Show();
                 this.Hide();
             }
             else
@@ -37,7 +37,7 @@ namespace Banking.Forms
          
         private void OpenBillButton_Click(object sender, EventArgs e)
         {
-            new OpenBillForm(crud).Show();
+            new OpenBillForm(bankingOperations).Show();
             this.Hide();
         }
 

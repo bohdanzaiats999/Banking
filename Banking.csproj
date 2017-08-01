@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,43 +54,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\AesCrypt.cs" />
-    <Compile Include="BusinessLogic\CRUD.cs" />
+    <Compile Include="BusinessLogic\BankingOperations.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\IUnitOfWork.cs" />
     <Compile Include="DAL\Repository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
+    <Compile Include="DAL\BankingContext.cs" />
+    <Compile Include="Forms\AddAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddAccountForm.Designer.cs">
+      <DependentUpon>AddAccountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ControlPanelForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ControlPanelForm.Designer.cs">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GetCashForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\GetCashForm.Designer.cs">
-      <DependentUpon>GetCashForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\RefillForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\RefillForm.Designer.cs">
-      <DependentUpon>RefillForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ToSendMoneyForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ToSendMoneyForm.Designer.cs">
-      <DependentUpon>ToSendMoneyForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\User.cs" />
-    <Compile Include="Model\UserContext.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707291053103_MigrateDB.cs" />
+    <Compile Include="Migrations\201707291053103_MigrateDB.Designer.cs">
+      <DependentUpon>201707291053103_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708010749254_MigrateDB1.cs" />
+    <Compile Include="Migrations\201708010749254_MigrateDB1.Designer.cs">
+      <DependentUpon>201708010749254_MigrateDB1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\CreditAccount.cs" />
+    <Compile Include="Model\CurrentAccount.cs" />
+    <Compile Include="Model\DepositAccount.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\OpenBillForm.cs">
@@ -98,31 +99,26 @@
     <Compile Include="Forms\OpenBillForm.Designer.cs">
       <DependentUpon>OpenBillForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddAccountForm.resx">
+      <DependentUpon>AddAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ControlPanelForm.resx">
       <DependentUpon>ControlPanelForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GetCashForm.resx">
-      <DependentUpon>GetCashForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RefillForm.resx">
-      <DependentUpon>RefillForm.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707291053103_MigrateDB.resx">
+      <DependentUpon>201707291053103_MigrateDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ToSendMoneyForm.resx">
-      <DependentUpon>ToSendMoneyForm.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708010749254_MigrateDB1.resx">
+      <DependentUpon>201708010749254_MigrateDB1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Forms\OpenBillForm.resx">
       <DependentUpon>OpenBillForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +127,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -141,12 +142,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\14434567631pogudx53mvhvit3di.c93156d9.jpeg" />
-    <Content Include="Images\29015.jpg" />
-    <Content Include="Images\48cba3ab.jpg" />
-    <Content Include="Images\CHto-takoe-internet-banking-ris-2.jpg" />
-    <Content Include="Images\icon-web%402x.jpg" />
-    <Content Include="Images\Internet_banking1.jpg" />
+    <Content Include="Images\Laptop_and_credit card.jpg" />
+    <Content Include="Images\Coins.jpg" />
+    <Content Include="Images\Calculator_and_money.jpg" />
+    <Content Include="Images\Laptop_and_credit card2.jpg" />
+    <Content Include="Images\Laptop and Cup.jpg" />
+    <Content Include="Images\Getting_cash.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

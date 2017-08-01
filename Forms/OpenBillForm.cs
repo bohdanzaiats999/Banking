@@ -13,19 +13,24 @@ namespace Banking.Forms
 {
     public partial class OpenBillForm : Form
     {
-        private CRUD crud;
-        public OpenBillForm(CRUD crud)
+        private BankingOperations bankingOperations;
+        public OpenBillForm(BankingOperations crud)
         {
             InitializeComponent();
-            this.crud = crud;
+            this.bankingOperations = crud;
         }
 
         private void OpenBillButton_Click(object sender, EventArgs e)
         {
-            if (crud.OpenBill(LoginTextBox.Text, PasswordTextBox.Text))
+            if (bankingOperations.IsOpenBill(LoginTextBox.Text, PasswordTextBox.Text))
             {
-                new ControlPanelForm(crud).Show();
+                MessageBox.Show("Registration was successful");
+                new ControlPanelForm(bankingOperations).Show();
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("This Login already exist");
             }
         }
 

@@ -11,8 +11,8 @@ c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Bank
 c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.exe
 c:\users\я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.pdb
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.LoginForm.resources
-C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.ControlPanelForm.resources
-C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.RefillForm.resources
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.OpenBillForm.resources
-C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.GetCashForm.resources
-C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.ToSendMoneyForm.resources
+C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Migrations.MigrateDB.resources
+C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.ControlPanelForm.resources
+C:\Users\Я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Migrations.MigrateDB1.resources
+C:\Users\Я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.AddAccountForm.resources
