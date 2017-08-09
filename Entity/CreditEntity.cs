@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banking.Model
+namespace Banking.Entity
 {
-    class CreditAccount
+    class CreditEntity
     {
         public int Id { get; set; }
         public string Number { get; set; }
@@ -15,7 +15,7 @@ namespace Banking.Model
         public float MonthlyPayment { get; set; }
         public bool AvailabilityCollateral { get; set; }
         public DateTime LastDateAccrued { get; set; }
-        public int? UserId { get; set; }
-        public User User { get; set; }
+        public int UserId { get; set; }
+        public UserEntity User { get; set; }
     }
 }

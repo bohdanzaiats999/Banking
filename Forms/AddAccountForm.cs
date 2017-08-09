@@ -28,25 +28,103 @@ namespace Banking.Forms
 
         private void AddAccountButton_Click(object sender, EventArgs e)
         {
+            string depositInterestRate = string.Empty;
+            string creditInterestRate = string.Empty;
+
+            try
+            {
+                switch (ChooseAccountСomboBox.SelectedIndex)
+                {
+                    case 0:
+                        bankingOperations.AddAccount();
+                        this.Close();
+                        new ControlPanelForm(bankingOperations).Show();
+                        break;
+                    case 1:
+                        if (DepositInterestRate25RadioButton.Checked)
+                        {
+                            depositInterestRate = DepositInterestRate25RadioButton.Text;
+                        }
+                        else if (DepositInterestRate15RadioButton.Checked)
+                        {
+                            depositInterestRate = DepositInterestRate15RadioButton.Text;
+
+                        }
+
+                        bankingOperations.AddDeposit(depositInterestRate, DepositMoneyTextBox.Text);
+                        this.Close();
+                        new ControlPanelForm(bankingOperations).Show();
+                        break;
+                    case 2:
+                        if (CreditInterestRate25RadioButton.Checked)
+                        {
+                            creditInterestRate = CreditInterestRate25RadioButton.Text;
+                        }
+                        else if (CreditInterestRate15RadioButton.Checked)
+                        {
+                            creditInterestRate = CreditInterestRate15RadioButton.Text;
+                        }
+
+                        bankingOperations.AddCredit(creditInterestRate,CreditMonthlyPaymentTextBox.Text,CreditAvailabilityCollateralCheckBox.Checked,CreditMoneyTextBox.Text);
+                        this.Close();
+                        new ControlPanelForm(bankingOperations).Show();
+                        break;
+                    default:
+                        throw new Exception("Choose account");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void ChooseAccountСomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             switch (ChooseAccountСomboBox.SelectedIndex)
             {
-                case 0: bankingOperations.AddCurrentAccount();
-                    this.Close();
-                    new ControlPanelForm(bankingOperations).Show();
+                case 0:
+                    DepositGroupBox.Visible = false;
+                    CreditGroupBox.Visible = false;
                     break;
                 case 1:
-                    bankingOperations.AddDepositAccount();
-                    this.Close();
-                    new ControlPanelForm(bankingOperations).Show();
-                    break;  
+                    DepositGroupBox.Visible = true;
+                    CreditGroupBox.Visible = false;
+                    break;
                 case 2:
-                    bankingOperations.AddCreditAccount();
-                    this.Close();
-                    new ControlPanelForm(bankingOperations).Show();
+                    DepositGroupBox.Visible = false;
+                    CreditGroupBox.Visible = true;
                     break;
-                default:
-                    MessageBox.Show("Choose account");
-                    break;
+            }
+        }
+
+        private void DepositMoneyTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        private void CreditMoneyTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+(e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CreditMonthlyPaymentTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+(e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

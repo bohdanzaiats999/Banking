@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\AccountType.cs" />
     <Compile Include="BusinessLogic\AesCrypt.cs" />
     <Compile Include="BusinessLogic\BankingOperations.cs" />
     <Compile Include="DAL\IRepository.cs" />
@@ -86,11 +87,20 @@
     <Compile Include="Migrations\201708010749254_MigrateDB1.Designer.cs">
       <DependentUpon>201708010749254_MigrateDB1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708031118392_MigrateDB2.cs" />
+    <Compile Include="Migrations\201708031118392_MigrateDB2.Designer.cs">
+      <DependentUpon>201708031118392_MigrateDB2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708081307392_AddCompanyMigration.cs" />
+    <Compile Include="Migrations\201708081307392_AddCompanyMigration.Designer.cs">
+      <DependentUpon>201708081307392_AddCompanyMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\CreditAccount.cs" />
-    <Compile Include="Model\CurrentAccount.cs" />
-    <Compile Include="Model\DepositAccount.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Entity\CreditEntity.cs" />
+    <Compile Include="Entity\AccountEntity.cs" />
+    <Compile Include="Entity\DepositEntity.cs" />
+    <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="Model\UserModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\OpenBillForm.cs">
@@ -113,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708010749254_MigrateDB1.resx">
       <DependentUpon>201708010749254_MigrateDB1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708031118392_MigrateDB2.resx">
+      <DependentUpon>201708031118392_MigrateDB2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708081307392_AddCompanyMigration.resx">
+      <DependentUpon>201708081307392_AddCompanyMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Banking.Model;
+using Banking.Entity;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Threading;
@@ -99,37 +99,41 @@ namespace Banking.DAL
             }
         }
 
-        public User GetByLogin(string login)
+        public UserEntity GetByLogin(string login)
         {
-            return context.Set<User>().FirstOrDefault(a => a.Login == login);
+            return context.Set<UserEntity>().FirstOrDefault(a => a.Login == login);
+        }
+        public T GetById(object id)
+        {
+            return this.entities.Find(id);
         }
 
-        public IQueryable GetById(int id)
+        public IQueryable GetAccountById(int id)
         {
-            return context.Set<CurrentAccount>().Where(a => a.UserId == id);
+            return context.Set<AccountEntity>().Where(a => a.UserId == id);
         }
 
         public bool IsNumberAccount(string numberAccunt)
         {
-            return context.Set<CurrentAccount>().Any(a => a.Number == numberAccunt);
+            return context.Set<AccountEntity>().Any(a => a.Number == numberAccunt);
 
         }
 
-        public IList<CurrentAccount> GetCurrentAccountsListById(int userId)
+        public IList<AccountEntity> GetCurrentAccountsListById(int userId)
         {
 
-            return context.CurrentAccounts.Where(a => a.UserId == userId).ToList();
+            return context.Accounts.Where(a => a.UserId == userId).ToList();
         }
 
-        public IList<DepositAccount> GetDepositAccountsListById(int userId)
+        public IList<DepositEntity> GetDepositAccountsListById(int userId)
         {
-            return context.DepositAccounts.Where(a => a.UserId == userId).ToList();
+            return context.Deposits.Where(a => a.UserId == userId).ToList();
 
         }
 
-        public IList<CreditAccount> GetCreditAccountsListById(int userId)
+        public IList<CreditEntity> GetCreditAccountsListById(int userId)
         {
-            return context.CreditAccounts.Where(a => a.UserId == userId).ToList();
+            return context.Credits.Where(a => a.UserId == userId).ToList();
 
         }
     }

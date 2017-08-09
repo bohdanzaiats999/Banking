@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Banking.BusinessLogic;
+using System.Security.Authentication;
 
 namespace Banking.Forms
 {
@@ -22,15 +23,16 @@ namespace Banking.Forms
 
         private void OpenBillButton_Click(object sender, EventArgs e)
         {
-            if (bankingOperations.IsOpenBill(LoginTextBox.Text, PasswordTextBox.Text))
+            try
             {
+                bankingOperations.Registration(LoginTextBox.Text, PasswordTextBox.Text);
                 MessageBox.Show("Registration was successful");
                 new ControlPanelForm(bankingOperations).Show();
                 this.Close();
             }
-            else
+            catch (AuthenticationException ex)
             {
-                MessageBox.Show("This Login already exist");
+                MessageBox.Show(ex.Message);
             }
         }
 
