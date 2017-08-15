@@ -79,6 +79,18 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RefillAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RefillAccountForm.Designer.cs">
+      <DependentUpon>RefillAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SendMoneyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SendMoneyForm.Designer.cs">
+      <DependentUpon>SendMoneyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201707291053103_MigrateDB.cs" />
     <Compile Include="Migrations\201707291053103_MigrateDB.Designer.cs">
       <DependentUpon>201707291053103_MigrateDB.cs</DependentUpon>
@@ -121,6 +133,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RefillAccountForm.resx">
+      <DependentUpon>RefillAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SendMoneyForm.resx">
+      <DependentUpon>SendMoneyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707291053103_MigrateDB.resx">
       <DependentUpon>201707291053103_MigrateDB.cs</DependentUpon>

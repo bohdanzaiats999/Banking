@@ -118,20 +118,34 @@ namespace Banking.DAL
             return context.Set<AccountEntity>().Any(a => a.Number == numberAccunt);
 
         }
+        public AccountEntity GetAccountByNumber(string number)
+        {
+            return context.Set<AccountEntity>().FirstOrDefault(a=>a.Number == number);
+        }
 
-        public IQueryable<AccountEntity> GetCurrentAccountsListById(int userId)
+        public DepositEntity GetDepositByNumber(string number)
+        {
+            return context.Set<DepositEntity>().FirstOrDefault(a => a.Number == number);
+        }
+
+        public CreditEntity GetCreditByNumber(string number)
+        {
+            return context.Set<CreditEntity>().FirstOrDefault(a => a.Number == number);
+        }
+
+        public IQueryable<AccountEntity> GetAccountsListById(int userId)
         {
 
             return context.Accounts.Where(a => a.UserId == userId);
         }
 
-        public IQueryable<DepositEntity> GetDepositAccountsListById(int userId)
+        public IQueryable<DepositEntity> GetDepositListById(int userId)
         {
             return context.Deposits.Where(a => a.UserId == userId);
 
         }
 
-        public IQueryable<CreditEntity> GetCreditAccountsListById(int userId)
+        public IQueryable<CreditEntity> GetCreditListById(int userId)
         {
             return context.Credits.Where(a => a.UserId == userId);
 

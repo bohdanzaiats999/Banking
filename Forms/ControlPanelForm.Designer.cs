@@ -41,6 +41,8 @@
             this.InterestRateInfoLabel = new System.Windows.Forms.Label();
             this.InterestRateGroupBox = new System.Windows.Forms.GroupBox();
             this.CloseAccountButton = new System.Windows.Forms.Button();
+            this.RefillAccountButton = new System.Windows.Forms.Button();
+            this.SendMoneyButton = new System.Windows.Forms.Button();
             this.ChooseAccountGroupBox.SuspendLayout();
             this.InterestRateGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -183,7 +185,7 @@
             // 
             // CloseAccountButton
             // 
-            this.CloseAccountButton.Location = new System.Drawing.Point(656, 216);
+            this.CloseAccountButton.Location = new System.Drawing.Point(656, 229);
             this.CloseAccountButton.Name = "CloseAccountButton";
             this.CloseAccountButton.Size = new System.Drawing.Size(101, 29);
             this.CloseAccountButton.TabIndex = 13;
@@ -191,12 +193,34 @@
             this.CloseAccountButton.UseVisualStyleBackColor = true;
             this.CloseAccountButton.Click += new System.EventHandler(this.CloseAccountButton_Click);
             // 
+            // RefillAccountButton
+            // 
+            this.RefillAccountButton.Location = new System.Drawing.Point(656, 133);
+            this.RefillAccountButton.Name = "RefillAccountButton";
+            this.RefillAccountButton.Size = new System.Drawing.Size(101, 29);
+            this.RefillAccountButton.TabIndex = 14;
+            this.RefillAccountButton.Text = "Refill account";
+            this.RefillAccountButton.UseVisualStyleBackColor = true;
+            this.RefillAccountButton.Click += new System.EventHandler(this.RefillAccountButton_Click);
+            // 
+            // SendMoneyButton
+            // 
+            this.SendMoneyButton.Location = new System.Drawing.Point(656, 181);
+            this.SendMoneyButton.Name = "SendMoneyButton";
+            this.SendMoneyButton.Size = new System.Drawing.Size(101, 29);
+            this.SendMoneyButton.TabIndex = 15;
+            this.SendMoneyButton.Text = "Send Money";
+            this.SendMoneyButton.UseVisualStyleBackColor = true;
+            this.SendMoneyButton.Click += new System.EventHandler(this.SendMoneyButton_Click);
+            // 
             // ControlPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(769, 441);
+            this.Controls.Add(this.SendMoneyButton);
+            this.Controls.Add(this.RefillAccountButton);
             this.Controls.Add(this.CloseAccountButton);
             this.Controls.Add(this.InterestRateGroupBox);
             this.Controls.Add(this.MoneyInfoLabel);
@@ -231,5 +255,7 @@
         private System.Windows.Forms.Label InterestRateInfoLabel;
         private System.Windows.Forms.GroupBox InterestRateGroupBox;
         private System.Windows.Forms.Button CloseAccountButton;
+        private System.Windows.Forms.Button RefillAccountButton;
+        private System.Windows.Forms.Button SendMoneyButton;
     }
 }

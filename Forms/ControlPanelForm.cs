@@ -125,5 +125,70 @@ namespace Banking.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void RefillAccountButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ChooseNumberСomboBox.SelectedIndex == -1)
+                {
+                    throw new Exception("Choose number");
+                }
+                AccountType type;
+                switch (ChooseAccountСomboBox.SelectedIndex)
+                {
+                    case 0:
+                        type = AccountType.Account;
+                        break;
+                    case 1:
+                        type = AccountType.Deposit;
+                        break;
+                    case 2:
+                        type = AccountType.Credit;
+                        break;
+                    default:
+                        throw new Exception("Choose account");
+                }
+                new RefillAccountForm(bankingOperations, type, ChooseNumberСomboBox.SelectedIndex).Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SendMoneyButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ChooseNumberСomboBox.SelectedIndex == -1)
+                {
+                    throw new Exception("Choose number");
+                }
+                AccountType type;
+                switch (ChooseAccountСomboBox.SelectedIndex)
+                {
+                    case 0:
+                        type = AccountType.Account;
+                        break;
+                    case 1:
+                        type = AccountType.Deposit;
+                        break;
+                    case 2:
+                        type = AccountType.Credit;
+                        break;
+                    default:
+                        throw new Exception("Choose account");
+                }
+                new SendMoneyForm(bankingOperations, type, ChooseNumberСomboBox.SelectedIndex).Show();
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -23,7 +23,6 @@ namespace Banking.BusinessLogic
             db = new UnitOfWork();
         }
 
-        // Log In
         public void LogIn(string login, string password)
         {
             if (login != "" && password != "")
@@ -44,7 +43,6 @@ namespace Banking.BusinessLogic
             throw new AuthenticationException("Login or Password is wrong");
         }
 
-        // Registration
         public void Registration(string login, string password)
         {
 
@@ -78,20 +76,20 @@ namespace Banking.BusinessLogic
         public List<DepositEntity> GetDepositList()
         {
 
-            List<DepositEntity> accountsList = db.Repository<DepositEntity>().GetDepositAccountsListById(userId).ToList();
+            List<DepositEntity> accountsList = db.Repository<DepositEntity>().GetDepositListById(userId).ToList();
             return accountsList;
         }
 
         public List<AccountEntity> GetCurrentList()
         {
 
-            List<AccountEntity> accountsList = db.Repository<AccountEntity>().GetCurrentAccountsListById(userId).ToList();
+            List<AccountEntity> accountsList = db.Repository<AccountEntity>().GetAccountsListById(userId).ToList();
             return accountsList;
         }
 
         public List<CreditEntity> GetCreditList()
         {
-            List<CreditEntity> accountsList = db.Repository<CreditEntity>().GetCreditAccountsListById(userId).ToList();
+            List<CreditEntity> accountsList = db.Repository<CreditEntity>().GetCreditListById(userId).ToList();
             return accountsList;
         }
 
@@ -139,7 +137,7 @@ namespace Banking.BusinessLogic
                 var entityToInsert = new CreditEntity
                 {
                     UserId = userId,
-                    Money = float.Parse(money),
+                    Money = -(float.Parse(money)),
                     InterestRate = float.Parse(interestRate),
                     LastDateAccrued = DateTime.Now,
                     MonthlyPayment = float.Parse(monthlyPayment),
@@ -182,19 +180,19 @@ namespace Banking.BusinessLogic
             switch (type)
             {
                 case AccountType.Account:
-                    var accountEntity = db.Repository<AccountEntity>().GetCurrentAccountsListById(userId).FirstOrDefault(x => x.Number == numberAccount);
+                    var accountEntity = db.Repository<AccountEntity>().GetAccountsListById(userId).FirstOrDefault(x => x.Number == numberAccount);
                     db.Repository<AccountEntity>().Delete(accountEntity);
                     break;
                 case AccountType.Credit:
-                    var creditEntity = db.Repository<CreditEntity>().GetCreditAccountsListById(userId).FirstOrDefault(x => x.Number == numberAccount);
-                    if (creditEntity.Money > 0)
+                    var creditEntity = db.Repository<CreditEntity>().GetCreditListById(userId).FirstOrDefault(x => x.Number == numberAccount);
+                    if (creditEntity.Money < 0)
                     {
                         throw new Exception("You cannot close the account, account has a negative balance");
                     }
                     db.Repository<CreditEntity>().Delete(creditEntity);
                     break;
                 case AccountType.Deposit:
-                    var depositEntity = db.Repository<DepositEntity>().GetDepositAccountsListById(userId).FirstOrDefault(x => x.Number == numberAccount);
+                    var depositEntity = db.Repository<DepositEntity>().GetDepositListById(userId).FirstOrDefault(x => x.Number == numberAccount);
                     db.Repository<DepositEntity>().Delete(depositEntity);
                     break;
             }
@@ -203,39 +201,141 @@ namespace Banking.BusinessLogic
 
         public void AccrualInterest()
         {
-            var deposits = db.Repository<DepositEntity>().GetDepositAccountsListById(userId);
+            var deposits = db.Repository<DepositEntity>().GetDepositListById(userId);
 
-            if (deposits.Count() != 0 )
+            if (deposits.Count() != 0)
             {
                 foreach (var deposit in deposits)
                 {
-                    TimeSpan differenceInDays = deposit.LastDateAccrued - DateTime.Now;
-                    if (differenceInDays.Days > 30)
+                    TimeSpan differenceInDays = DateTime.Now - deposit.LastDateAccrued;
+                    while (differenceInDays.Days > 30)
                     {
                         deposit.Money += (deposit.Money * deposit.InterestRate) / 100;
-                        deposit.LastDateAccrued += TimeSpan.FromDays(30);
+                        deposit.LastDateAccrued = deposit.LastDateAccrued.AddDays(30);
                     }
                 }
                 db.Repository<DepositEntity>().UpdateRange(deposits);
                 db.SaveChanges();
             }
 
-            var credits = db.Repository<CreditEntity>().GetCreditAccountsListById(userId);
+            var credits = db.Repository<CreditEntity>().GetCreditListById(userId);
             if (credits.Count() != 0)
             {
                 foreach (var credit in credits)
                 {
-                    TimeSpan differenceInDays = credit.LastDateAccrued - DateTime.Now;
+                    TimeSpan differenceInDays = DateTime.Now - credit.LastDateAccrued;
 
-                    if (differenceInDays.Days > 30)
+                    while (differenceInDays.Days > 30)
                     {
                         credit.Money += (credit.Money * credit.InterestRate) / 100;
-                        credit.LastDateAccrued += TimeSpan.FromDays(30);
+                        credit.LastDateAccrued = credit.LastDateAccrued.AddDays(30);
                     }
+
                 }
                 db.Repository<CreditEntity>().UpdateRange(credits);
                 db.SaveChanges();
             }
+        }
+
+        public void RefillAccount(string money, AccountType type, int index)
+        {
+            if (money == string.Empty && float.Parse(money) > 0)
+            {
+                throw new Exception("Fill in the money field");
+            }
+            switch (type)
+            {
+                case AccountType.Account:
+                    var accounts = db.Repository<AccountEntity>().GetAccountsListById(userId);
+                    accounts.ToList()[index].Money += float.Parse(money);
+                    db.Repository<AccountEntity>().UpdateRange(accounts);
+                    db.SaveChanges();
+                    break;
+                case AccountType.Deposit:
+                    var deposits = db.Repository<DepositEntity>().GetDepositListById(userId);
+                    deposits.ToList()[index].Money += float.Parse(money);
+                    db.Repository<DepositEntity>().UpdateRange(deposits);
+                    db.SaveChanges();
+                    break;
+                case AccountType.Credit:
+                    var credits = db.Repository<CreditEntity>().GetCreditListById(userId);
+                    credits.ToList()[index].Money += float.Parse(money);
+                    db.Repository<CreditEntity>().UpdateRange(credits);
+                    db.SaveChanges();
+                    break;
+            }
+        }
+
+        public void SendMoney(string money, AccountType type, int index, string payeeNumber)
+        {
+            float sendMoney = float.Parse(money);
+
+            if (money == string.Empty && sendMoney > 0)
+            {
+                throw new Exception("Fill in the money field");
+            }
+            if (payeeNumber == string.Empty)
+            {
+                throw new Exception("Fill in the number field");
+            }
+            switch (type)
+            {
+                case AccountType.Account:
+                    var accountRecipient = db.Repository<AccountEntity>().GetAccountByNumber(payeeNumber);
+
+                    if (accountRecipient == null)
+                    {
+                        throw new Exception("User not found");
+                    }
+                    var accounts = db.Repository<AccountEntity>().GetAccountsListById(userId);
+                    if (accounts.ToList()[index].Money > sendMoney)
+                    {
+                        accounts.ToList()[index].Money -= sendMoney;
+                        accountRecipient.Money += sendMoney;
+
+                        db.Repository<AccountEntity>().UpdateRange(accounts);
+                        db.Repository<AccountEntity>().Update(accountRecipient);
+                        db.SaveChanges();
+                    }
+                    break;
+                case AccountType.Deposit:
+                    var depositRecipient = db.Repository<DepositEntity>().GetDepositByNumber(payeeNumber);
+
+                    if (depositRecipient == null)
+                    {
+                        throw new Exception("User not found");
+                    }
+                    var deposits = db.Repository<DepositEntity>().GetDepositListById(userId);
+                    if (deposits.ToList()[index].Money > sendMoney)
+                    {
+                        deposits.ToList()[index].Money -= sendMoney;
+                        depositRecipient.Money += sendMoney;
+
+                        db.Repository<DepositEntity>().UpdateRange(deposits);
+                        db.Repository<DepositEntity>().Update(depositRecipient);
+                        db.SaveChanges();
+                    }
+                    break;
+                case AccountType.Credit:
+                    var creditRecipient = db.Repository<CreditEntity>().GetCreditByNumber(payeeNumber);
+
+                    if (creditRecipient == null)
+                    {
+                        throw new Exception("User not found");
+                    }
+                    var credits = db.Repository<CreditEntity>().GetCreditListById(userId);
+                    if (credits.ToList()[index].Money > sendMoney)
+                    {
+                        credits.ToList()[index].Money -= sendMoney;
+                        creditRecipient.Money += sendMoney;
+
+                        db.Repository<CreditEntity>().UpdateRange(credits);
+                        db.Repository<CreditEntity>().Update(creditRecipient);
+                        db.SaveChanges();
+                    }
+                    break;
+            }
+
         }
     }
 }
