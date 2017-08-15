@@ -12,7 +12,7 @@ using System.Security.Authentication;
 
 namespace Banking.Forms
 {
-    public partial class OpenBillForm : Form
+     partial class OpenBillForm : Form
     {
         private BankingOperations bankingOperations;
         public OpenBillForm(BankingOperations crud)

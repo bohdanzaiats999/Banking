@@ -35,7 +35,14 @@
             this.AddAccountButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.ChooseAccountGroupBox = new System.Windows.Forms.GroupBox();
+            this.MoneyStatusLabel = new System.Windows.Forms.Label();
+            this.MoneyInfoLabel = new System.Windows.Forms.Label();
+            this.InterestRateStatusLable = new System.Windows.Forms.Label();
+            this.InterestRateInfoLabel = new System.Windows.Forms.Label();
+            this.InterestRateGroupBox = new System.Windows.Forms.GroupBox();
+            this.CloseAccountButton = new System.Windows.Forms.Button();
             this.ChooseAccountGroupBox.SuspendLayout();
+            this.InterestRateGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ChooseAccountСomboBox
@@ -76,6 +83,7 @@
             this.ChooseNumberСomboBox.Size = new System.Drawing.Size(181, 21);
             this.ChooseNumberСomboBox.TabIndex = 2;
             this.ChooseNumberСomboBox.TabStop = false;
+            this.ChooseNumberСomboBox.SelectedIndexChanged += new System.EventHandler(this.ChooseNumberСomboBox_SelectedIndexChanged);
             // 
             // ChooseNumberLabel
             // 
@@ -120,12 +128,79 @@
             this.ChooseAccountGroupBox.TabStop = false;
             this.ChooseAccountGroupBox.Text = "Choose Account";
             // 
+            // MoneyStatusLabel
+            // 
+            this.MoneyStatusLabel.AutoSize = true;
+            this.MoneyStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.MoneyStatusLabel.Location = new System.Drawing.Point(469, 229);
+            this.MoneyStatusLabel.Name = "MoneyStatusLabel";
+            this.MoneyStatusLabel.Size = new System.Drawing.Size(51, 31);
+            this.MoneyStatusLabel.TabIndex = 8;
+            this.MoneyStatusLabel.Text = "0 $";
+            // 
+            // MoneyInfoLabel
+            // 
+            this.MoneyInfoLabel.AutoSize = true;
+            this.MoneyInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.MoneyInfoLabel.Location = new System.Drawing.Point(169, 229);
+            this.MoneyInfoLabel.Name = "MoneyInfoLabel";
+            this.MoneyInfoLabel.Size = new System.Drawing.Size(303, 31);
+            this.MoneyInfoLabel.TabIndex = 9;
+            this.MoneyInfoLabel.Text = "Money on your account:";
+            // 
+            // InterestRateStatusLable
+            // 
+            this.InterestRateStatusLable.AutoSize = true;
+            this.InterestRateStatusLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.InterestRateStatusLable.Location = new System.Drawing.Point(177, 16);
+            this.InterestRateStatusLable.Name = "InterestRateStatusLable";
+            this.InterestRateStatusLable.Size = new System.Drawing.Size(60, 31);
+            this.InterestRateStatusLable.TabIndex = 10;
+            this.InterestRateStatusLable.Text = "0 %";
+            // 
+            // InterestRateInfoLabel
+            // 
+            this.InterestRateInfoLabel.AutoSize = true;
+            this.InterestRateInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.InterestRateInfoLabel.Location = new System.Drawing.Point(3, 16);
+            this.InterestRateInfoLabel.Name = "InterestRateInfoLabel";
+            this.InterestRateInfoLabel.Size = new System.Drawing.Size(168, 31);
+            this.InterestRateInfoLabel.TabIndex = 11;
+            this.InterestRateInfoLabel.Text = "Interest rate:";
+            // 
+            // InterestRateGroupBox
+            // 
+            this.InterestRateGroupBox.BackColor = System.Drawing.Color.Transparent;
+            this.InterestRateGroupBox.Controls.Add(this.InterestRateInfoLabel);
+            this.InterestRateGroupBox.Controls.Add(this.InterestRateStatusLable);
+            this.InterestRateGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Inch, ((byte)(204)));
+            this.InterestRateGroupBox.Location = new System.Drawing.Point(166, 287);
+            this.InterestRateGroupBox.Name = "InterestRateGroupBox";
+            this.InterestRateGroupBox.Size = new System.Drawing.Size(245, 58);
+            this.InterestRateGroupBox.TabIndex = 12;
+            this.InterestRateGroupBox.TabStop = false;
+            this.InterestRateGroupBox.Visible = false;
+            // 
+            // CloseAccountButton
+            // 
+            this.CloseAccountButton.Location = new System.Drawing.Point(656, 216);
+            this.CloseAccountButton.Name = "CloseAccountButton";
+            this.CloseAccountButton.Size = new System.Drawing.Size(101, 29);
+            this.CloseAccountButton.TabIndex = 13;
+            this.CloseAccountButton.Text = "Close Account";
+            this.CloseAccountButton.UseVisualStyleBackColor = true;
+            this.CloseAccountButton.Click += new System.EventHandler(this.CloseAccountButton_Click);
+            // 
             // ControlPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(769, 441);
+            this.Controls.Add(this.CloseAccountButton);
+            this.Controls.Add(this.InterestRateGroupBox);
+            this.Controls.Add(this.MoneyInfoLabel);
+            this.Controls.Add(this.MoneyStatusLabel);
             this.Controls.Add(this.ChooseAccountGroupBox);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AddAccountButton);
@@ -134,7 +209,10 @@
             this.Text = "ControlPanelForm";
             this.ChooseAccountGroupBox.ResumeLayout(false);
             this.ChooseAccountGroupBox.PerformLayout();
+            this.InterestRateGroupBox.ResumeLayout(false);
+            this.InterestRateGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -147,5 +225,11 @@
         private System.Windows.Forms.Button AddAccountButton;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.GroupBox ChooseAccountGroupBox;
+        private System.Windows.Forms.Label MoneyStatusLabel;
+        private System.Windows.Forms.Label MoneyInfoLabel;
+        private System.Windows.Forms.Label InterestRateStatusLable;
+        private System.Windows.Forms.Label InterestRateInfoLabel;
+        private System.Windows.Forms.GroupBox InterestRateGroupBox;
+        private System.Windows.Forms.Button CloseAccountButton;
     }
 }

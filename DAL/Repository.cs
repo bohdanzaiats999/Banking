@@ -119,22 +119,45 @@ namespace Banking.DAL
 
         }
 
-        public IList<AccountEntity> GetCurrentAccountsListById(int userId)
+        public IQueryable<AccountEntity> GetCurrentAccountsListById(int userId)
         {
 
-            return context.Accounts.Where(a => a.UserId == userId).ToList();
+            return context.Accounts.Where(a => a.UserId == userId);
         }
 
-        public IList<DepositEntity> GetDepositAccountsListById(int userId)
+        public IQueryable<DepositEntity> GetDepositAccountsListById(int userId)
         {
-            return context.Deposits.Where(a => a.UserId == userId).ToList();
+            return context.Deposits.Where(a => a.UserId == userId);
 
         }
 
-        public IList<CreditEntity> GetCreditAccountsListById(int userId)
+        public IQueryable<CreditEntity> GetCreditAccountsListById(int userId)
         {
-            return context.Credits.Where(a => a.UserId == userId).ToList();
+            return context.Credits.Where(a => a.UserId == userId);
 
+        }
+
+        public void UpdateRange(IQueryable<T> entities)
+        {
+            try
+            {
+                foreach (var entity in entities.ToList())
+                {
+                    this.context.Entry(entity).State = EntityState.Modified;
+                }
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        errorMessage += Environment.NewLine + string.Format("Property: {0} Error: {1}",
+                        validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+                throw new Exception(errorMessage, dbEx);
+            }
         }
     }
 }

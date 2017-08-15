@@ -38,6 +38,7 @@
             this.DepositInterestRateLabel = new System.Windows.Forms.Label();
             this.DepositMoneyTextBox = new System.Windows.Forms.TextBox();
             this.CreditGroupBox = new System.Windows.Forms.GroupBox();
+            this.CreditAvailabilityCollateralCheckBox = new System.Windows.Forms.CheckBox();
             this.CreditMonthlyPaymentLabel = new System.Windows.Forms.Label();
             this.CreditMonthlyPaymentTextBox = new System.Windows.Forms.TextBox();
             this.CreditInterestRate15RadioButton = new System.Windows.Forms.RadioButton();
@@ -45,7 +46,6 @@
             this.CreditMoneyLabel = new System.Windows.Forms.Label();
             this.CreditInterestRateLabel = new System.Windows.Forms.Label();
             this.CreditMoneyTextBox = new System.Windows.Forms.TextBox();
-            this.CreditAvailabilityCollateralCheckBox = new System.Windows.Forms.CheckBox();
             this.DepositGroupBox.SuspendLayout();
             this.CreditGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -171,6 +171,16 @@
             this.CreditGroupBox.Text = "Credit";
             this.CreditGroupBox.Visible = false;
             // 
+            // CreditAvailabilityCollateralCheckBox
+            // 
+            this.CreditAvailabilityCollateralCheckBox.AutoSize = true;
+            this.CreditAvailabilityCollateralCheckBox.Location = new System.Drawing.Point(137, 105);
+            this.CreditAvailabilityCollateralCheckBox.Name = "CreditAvailabilityCollateralCheckBox";
+            this.CreditAvailabilityCollateralCheckBox.Size = new System.Drawing.Size(121, 17);
+            this.CreditAvailabilityCollateralCheckBox.TabIndex = 8;
+            this.CreditAvailabilityCollateralCheckBox.Text = "Availability Collateral";
+            this.CreditAvailabilityCollateralCheckBox.UseVisualStyleBackColor = true;
+            // 
             // CreditMonthlyPaymentLabel
             // 
             this.CreditMonthlyPaymentLabel.AutoSize = true;
@@ -235,16 +245,6 @@
             this.CreditMoneyTextBox.Size = new System.Drawing.Size(73, 20);
             this.CreditMoneyTextBox.TabIndex = 1;
             this.CreditMoneyTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CreditMoneyTextBox_KeyPress);
-            // 
-            // CreditAvailabilityCollateralCheckBox
-            // 
-            this.CreditAvailabilityCollateralCheckBox.AutoSize = true;
-            this.CreditAvailabilityCollateralCheckBox.Location = new System.Drawing.Point(137, 105);
-            this.CreditAvailabilityCollateralCheckBox.Name = "CreditAvailabilityCollateralCheckBox";
-            this.CreditAvailabilityCollateralCheckBox.Size = new System.Drawing.Size(121, 17);
-            this.CreditAvailabilityCollateralCheckBox.TabIndex = 8;
-            this.CreditAvailabilityCollateralCheckBox.Text = "Availability Collateral";
-            this.CreditAvailabilityCollateralCheckBox.UseVisualStyleBackColor = true;
             // 
             // AddAccountForm
             // 

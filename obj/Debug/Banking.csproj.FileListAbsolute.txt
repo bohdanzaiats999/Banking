@@ -18,3 +18,4 @@ C:\Users\Я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Bank
 C:\Users\Я\documents\visual studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.AddAccountForm.resources
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Migrations.MigrateDB2.resources
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Migrations.AddCompanyMigration.resources
+C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Migrations.AddCompanyMigration1.resources

@@ -95,6 +95,10 @@
     <Compile Include="Migrations\201708081307392_AddCompanyMigration.Designer.cs">
       <DependentUpon>201708081307392_AddCompanyMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708110753480_AddCompanyMigration1.cs" />
+    <Compile Include="Migrations\201708110753480_AddCompanyMigration1.Designer.cs">
+      <DependentUpon>201708110753480_AddCompanyMigration1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entity\CreditEntity.cs" />
     <Compile Include="Entity\AccountEntity.cs" />
@@ -129,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708081307392_AddCompanyMigration.resx">
       <DependentUpon>201708081307392_AddCompanyMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708110753480_AddCompanyMigration1.resx">
+      <DependentUpon>201708110753480_AddCompanyMigration1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Banking.Entity
 {
+    [Table("Account")]
     class AccountEntity
     {
         public int Id { get; set; }

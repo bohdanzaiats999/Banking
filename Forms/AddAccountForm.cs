@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Banking.BusinessLogic;
+using System.Text.RegularExpressions;
 
 namespace Banking.Forms
 {
-    public partial class AddAccountForm : Form
+    partial class AddAccountForm : Form
     {
         private BankingOperations bankingOperations;
         public AddAccountForm(BankingOperations bankingOperations)
@@ -65,7 +66,7 @@ namespace Banking.Forms
                             creditInterestRate = CreditInterestRate15RadioButton.Text;
                         }
 
-                        bankingOperations.AddCredit(creditInterestRate,CreditMonthlyPaymentTextBox.Text,CreditAvailabilityCollateralCheckBox.Checked,CreditMoneyTextBox.Text);
+                        bankingOperations.AddCredit(creditInterestRate, CreditMonthlyPaymentTextBox.Text, CreditAvailabilityCollateralCheckBox.Checked, CreditMoneyTextBox.Text);
                         this.Close();
                         new ControlPanelForm(bankingOperations).Show();
                         break;
@@ -102,8 +103,7 @@ namespace Banking.Forms
 
         private void DepositMoneyTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-    (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !Regex.IsMatch(e.KeyChar.ToString(), @"^-*[0-9,\.]+$"))
             {
                 e.Handled = true;
             }
@@ -112,8 +112,7 @@ namespace Banking.Forms
 
         private void CreditMoneyTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-(e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !Regex.IsMatch(e.KeyChar.ToString(), @"^-*[0-9,\.]+$"))
             {
                 e.Handled = true;
             }
@@ -121,11 +120,11 @@ namespace Banking.Forms
 
         private void CreditMonthlyPaymentTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-(e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !Regex.IsMatch(e.KeyChar.ToString(), @"^-*[0-9,\.]+$"))
             {
                 e.Handled = true;
             }
         }
+
     }
 }
