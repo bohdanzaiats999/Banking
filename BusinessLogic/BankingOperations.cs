@@ -73,23 +73,23 @@ namespace Banking.BusinessLogic
             throw new AuthenticationException("User alredy exist");
         }
 
-        public List<DepositEntity> GetDepositList()
+        public ICollection<DepositEntity> GetDepositList()
         {
 
-            List<DepositEntity> accountsList = db.Repository<DepositEntity>().GetDepositListById(userId).ToList();
+            ICollection<DepositEntity> accountsList = db.Repository<DepositEntity>().GetDepositListById(userId).ToList();
             return accountsList;
         }
 
-        public List<AccountEntity> GetCurrentList()
+        public ICollection<AccountEntity> GetCurrentList()
         {
 
-            List<AccountEntity> accountsList = db.Repository<AccountEntity>().GetAccountsListById(userId).ToList();
+            ICollection<AccountEntity> accountsList = db.Repository<AccountEntity>().GetAccountsListById(userId).ToList();
             return accountsList;
         }
 
-        public List<CreditEntity> GetCreditList()
+        public ICollection<CreditEntity> GetCreditList()
         {
-            List<CreditEntity> accountsList = db.Repository<CreditEntity>().GetCreditListById(userId).ToList();
+            ICollection<CreditEntity> accountsList = db.Repository<CreditEntity>().GetCreditListById(userId).ToList();
             return accountsList;
         }
 
@@ -114,9 +114,9 @@ namespace Banking.BusinessLogic
                 var entityToInsert = new DepositEntity
                 {
                     UserId = userId,
-                    Money = float.Parse(money),
-                    InterestRate = float.Parse(interestRate),
-                    LastDateAccrued = DateTime.Now
+                    Money = decimal.Parse(money),
+                    InterestRate = decimal.Parse(interestRate),
+                    LastDateAccrued = DateTimeOffset.Now
                 };
                 db.Repository<DepositEntity>().Insert(entityToInsert);
                 db.SaveChanges();
@@ -137,10 +137,10 @@ namespace Banking.BusinessLogic
                 var entityToInsert = new CreditEntity
                 {
                     UserId = userId,
-                    Money = -(float.Parse(money)),
-                    InterestRate = float.Parse(interestRate),
-                    LastDateAccrued = DateTime.Now,
-                    MonthlyPayment = float.Parse(monthlyPayment),
+                    Money = -(decimal.Parse(money)),
+                    InterestRate = decimal.Parse(interestRate),
+                    LastDateAccrued = DateTimeOffset.Now,
+                    MonthlyPayment = decimal.Parse(monthlyPayment),
                     AvailabilityCollateral = availabilityCollateral
                 };
                 db.Repository<CreditEntity>().Insert(entityToInsert);
@@ -207,7 +207,7 @@ namespace Banking.BusinessLogic
             {
                 foreach (var deposit in deposits)
                 {
-                    TimeSpan differenceInDays = DateTime.Now - deposit.LastDateAccrued;
+                    TimeSpan differenceInDays = DateTimeOffset.Now - deposit.LastDateAccrued;
                     while (differenceInDays.Days > 30)
                     {
                         deposit.Money += (deposit.Money * deposit.InterestRate) / 100;
@@ -223,7 +223,7 @@ namespace Banking.BusinessLogic
             {
                 foreach (var credit in credits)
                 {
-                    TimeSpan differenceInDays = DateTime.Now - credit.LastDateAccrued;
+                    TimeSpan differenceInDays = DateTimeOffset.Now - credit.LastDateAccrued;
 
                     while (differenceInDays.Days > 30)
                     {
@@ -239,7 +239,7 @@ namespace Banking.BusinessLogic
 
         public void RefillAccount(string money, AccountType type, int index)
         {
-            if (money == string.Empty && float.Parse(money) > 0)
+            if (money == string.Empty && decimal.Parse(money) > 0)
             {
                 throw new Exception("Fill in the money field");
             }
@@ -247,19 +247,19 @@ namespace Banking.BusinessLogic
             {
                 case AccountType.Account:
                     var accounts = db.Repository<AccountEntity>().GetAccountsListById(userId);
-                    accounts.ToList()[index].Money += float.Parse(money);
+                    accounts.ToList()[index].Money += decimal.Parse(money);
                     db.Repository<AccountEntity>().UpdateRange(accounts);
                     db.SaveChanges();
                     break;
                 case AccountType.Deposit:
                     var deposits = db.Repository<DepositEntity>().GetDepositListById(userId);
-                    deposits.ToList()[index].Money += float.Parse(money);
+                    deposits.ToList()[index].Money += decimal.Parse(money);
                     db.Repository<DepositEntity>().UpdateRange(deposits);
                     db.SaveChanges();
                     break;
                 case AccountType.Credit:
                     var credits = db.Repository<CreditEntity>().GetCreditListById(userId);
-                    credits.ToList()[index].Money += float.Parse(money);
+                    credits.ToList()[index].Money += decimal.Parse(money);
                     db.Repository<CreditEntity>().UpdateRange(credits);
                     db.SaveChanges();
                     break;
@@ -268,7 +268,7 @@ namespace Banking.BusinessLogic
 
         public void SendMoney(string money, AccountType type, int index, string payeeNumber)
         {
-            float sendMoney = float.Parse(money);
+            decimal sendMoney = decimal.Parse(money);
 
             if (money == string.Empty && sendMoney > 0)
             {
@@ -335,7 +335,6 @@ namespace Banking.BusinessLogic
                     }
                     break;
             }
-
         }
     }
 }

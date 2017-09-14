@@ -91,25 +91,9 @@
     <Compile Include="Forms\SendMoneyForm.Designer.cs">
       <DependentUpon>SendMoneyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707291053103_MigrateDB.cs" />
-    <Compile Include="Migrations\201707291053103_MigrateDB.Designer.cs">
-      <DependentUpon>201707291053103_MigrateDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708010749254_MigrateDB1.cs" />
-    <Compile Include="Migrations\201708010749254_MigrateDB1.Designer.cs">
-      <DependentUpon>201708010749254_MigrateDB1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708031118392_MigrateDB2.cs" />
-    <Compile Include="Migrations\201708031118392_MigrateDB2.Designer.cs">
-      <DependentUpon>201708031118392_MigrateDB2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708081307392_AddCompanyMigration.cs" />
-    <Compile Include="Migrations\201708081307392_AddCompanyMigration.Designer.cs">
-      <DependentUpon>201708081307392_AddCompanyMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708110753480_AddCompanyMigration1.cs" />
-    <Compile Include="Migrations\201708110753480_AddCompanyMigration1.Designer.cs">
-      <DependentUpon>201708110753480_AddCompanyMigration1.cs</DependentUpon>
+    <Compile Include="Migrations\201709140848530_DBMigration.cs" />
+    <Compile Include="Migrations\201709140848530_DBMigration.Designer.cs">
+      <DependentUpon>201709140848530_DBMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entity\CreditEntity.cs" />
@@ -140,20 +124,8 @@
     <EmbeddedResource Include="Forms\SendMoneyForm.resx">
       <DependentUpon>SendMoneyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707291053103_MigrateDB.resx">
-      <DependentUpon>201707291053103_MigrateDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708010749254_MigrateDB1.resx">
-      <DependentUpon>201708010749254_MigrateDB1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708031118392_MigrateDB2.resx">
-      <DependentUpon>201708031118392_MigrateDB2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708081307392_AddCompanyMigration.resx">
-      <DependentUpon>201708081307392_AddCompanyMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708110753480_AddCompanyMigration1.resx">
-      <DependentUpon>201708110753480_AddCompanyMigration1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709140848530_DBMigration.resx">
+      <DependentUpon>201709140848530_DBMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -26,28 +26,32 @@ namespace Banking.Forms
 
         private void ChooseAccountСomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            StringBuilder stringBuilder;
+            string number;
             switch (ChooseAccountСomboBox.SelectedIndex)
             {
                 case 0:
                     ChooseNumberСomboBox.DataSource = bankingOperations.GetCurrentList()
                         //Add space in number string
-                        .Select(c => { stringBuilder = new StringBuilder(c.Number).Insert(4, " ").Insert(9, " ").Insert(14, " "); return stringBuilder; }).ToList();
+                        .Select(c => { number = AddSpace(c.Number); return number; }).ToList();
                     ChooseNumberСomboBox.DisplayMember = "Number";
                     break;
                 case 1:
                     ChooseNumberСomboBox.DataSource = bankingOperations.GetDepositList()
-                        .Select(c => { stringBuilder = new StringBuilder(c.Number).Insert(4, " ").Insert(9, " ").Insert(14, " "); return stringBuilder; }).ToList();
+                        .Select(c => { number = AddSpace(c.Number); return number; }).ToList();
                     ChooseNumberСomboBox.DisplayMember = "Number";
                     break;
                 case 2:
                     ChooseNumberСomboBox.DataSource = bankingOperations.GetCreditList()
-                        .Select(c => { stringBuilder = new StringBuilder(c.Number).Insert(4, " ").Insert(9, " ").Insert(14, " "); return stringBuilder; }).ToList();
+                        .Select(c => { number = AddSpace(c.Number); return number; }).ToList();
                     ChooseNumberСomboBox.DisplayMember = "Number";
                     break;
             }
         }
 
+        public string AddSpace(string number)
+        {
+            return number.Insert(4, " ").Insert(9, " ").Insert(14, " ");
+        }
         private void AddAccountButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -66,17 +70,17 @@ namespace Banking.Forms
             switch (ChooseAccountСomboBox.SelectedIndex)
             {
                 case 0:
-                    MoneyStatusLabel.Text = bankingOperations.GetCurrentList()[ChooseNumberСomboBox.SelectedIndex].Money.ToString();
+                    MoneyStatusLabel.Text = bankingOperations.GetCurrentList().ElementAt(ChooseNumberСomboBox.SelectedIndex).Money.ToString();  
                     InterestRateGroupBox.Visible = false;
                     break;
                 case 1:
-                    var deposit = bankingOperations.GetDepositList()[ChooseNumberСomboBox.SelectedIndex];
+                    var deposit = bankingOperations.GetDepositList().ElementAt(ChooseNumberСomboBox.SelectedIndex);
                     MoneyStatusLabel.Text = deposit.Money.ToString();
                     InterestRateStatusLable.Text = deposit.InterestRate.ToString();
                     InterestRateGroupBox.Visible = true;
                     break;
                 case 2:
-                    var credit = bankingOperations.GetCreditList()[ChooseNumberСomboBox.SelectedIndex];
+                    var credit = bankingOperations.GetCreditList().ElementAt(ChooseNumberСomboBox.SelectedIndex);
                     MoneyStatusLabel.Text = credit.Money.ToString();
                     InterestRateStatusLable.Text = credit.InterestRate.ToString();
                     InterestRateGroupBox.Visible = true;
@@ -102,23 +106,26 @@ namespace Banking.Forms
                 {
                     case 0:
                         type = AccountType.Account;
-                        number = bankingOperations.GetCurrentList()[ChooseNumberСomboBox.SelectedIndex].Number;
+                        number = bankingOperations.GetCurrentList().ElementAt(ChooseNumberСomboBox.SelectedIndex).Number;
                         break;
                     case 1:
                         type = AccountType.Deposit;
-                        number = bankingOperations.GetDepositList()[ChooseNumberСomboBox.SelectedIndex].Number;
+                        number = bankingOperations.GetDepositList().ElementAt(ChooseNumberСomboBox.SelectedIndex).Number;
                         break;
                     case 2:
                         type = AccountType.Credit;
-                        number = bankingOperations.GetCreditList()[ChooseNumberСomboBox.SelectedIndex].Number;
+                        number = bankingOperations.GetCreditList().ElementAt(ChooseNumberСomboBox.SelectedIndex).Number;
                         break;
                     default:
                         throw new Exception("Choose account");
                 }
+                if (MessageBox.Show("Are you sure you want to delete the account","Deleting account",MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
                 bankingOperations.CloseAccount(number, type);
                 MessageBox.Show("Account was deleted");
                 this.Close();
                 new ControlPanelForm(bankingOperations).Show();
+                }
             }
             catch (Exception ex)
             {

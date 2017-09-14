@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Banking.Entity
 {
-    [Table("User")]
+    [Table("Users")]
     class UserEntity
     {
         public int Id { get; set; }

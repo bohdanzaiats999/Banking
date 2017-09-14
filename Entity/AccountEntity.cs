@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Banking.Entity
 {
-    [Table("Account")]
+    [Table("Accounts")]
     class AccountEntity
     {
         public int Id { get; set; }
         public string Number { get; set; }
-        public float Money { get; set; }
+        public decimal Money { get; set; }
         public int UserId { get; set; }
         public UserEntity User { get; set; }
     }

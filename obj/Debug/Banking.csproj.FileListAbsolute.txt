@@ -20,3 +20,21 @@ C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Bank
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Migrations.AddCompanyMigration.resources
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Migrations.AddCompanyMigration1.resources
 C:\Users\Я\Documents\Visual Studio 2017\Projects\Banking\Banking\obj\Debug\Banking.Forms.RefillAccountForm.resources
+C:\Users\User\Documents\Banking\bin\Debug\Banking.exe.config
+C:\Users\User\Documents\Banking\bin\Debug\Banking.exe
+C:\Users\User\Documents\Banking\bin\Debug\Banking.pdb
+C:\Users\User\Documents\Banking\bin\Debug\EntityFramework.xml
+C:\Users\User\Documents\Banking\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Documents\Banking\obj\Debug\Banking.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Banking\obj\Debug\Banking.Forms.AddAccountForm.resources
+C:\Users\User\Documents\Banking\obj\Debug\Banking.Forms.ControlPanelForm.resources
+C:\Users\User\Documents\Banking\obj\Debug\Banking.Forms.LoginForm.resources
+C:\Users\User\Documents\Banking\obj\Debug\Banking.Forms.RefillAccountForm.resources
+C:\Users\User\Documents\Banking\obj\Debug\Banking.Forms.SendMoneyForm.resources
+C:\Users\User\Documents\Banking\obj\Debug\Banking.Properties.Resources.resources
+C:\Users\User\Documents\Banking\obj\Debug\Banking.Forms.OpenBillForm.resources
+C:\Users\User\Documents\Banking\obj\Debug\Banking.csproj.GenerateResource.Cache
+C:\Users\User\Documents\Banking\obj\Debug\Banking.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Banking\obj\Debug\Banking.exe
+C:\Users\User\Documents\Banking\obj\Debug\Banking.pdb
+C:\Users\User\Documents\Banking\obj\Debug\Banking.Migrations.DBMigration.resources

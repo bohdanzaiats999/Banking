@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Banking.Entity
 {
-    [Table("Deposit")]
+    [Table("Deposits")]
     class DepositEntity
     {
         public int Id { get; set; }
         public string Number { get; set; }
-        public float Money { get; set; }
-        public float InterestRate { get; set; }
-        public DateTime LastDateAccrued { get; set; }
+        public decimal Money { get; set; }
+        public decimal InterestRate { get; set; }
+        public DateTimeOffset LastDateAccrued { get; set; }
         public int UserId { get; set; }
         public UserEntity User { get; set; }
     }
