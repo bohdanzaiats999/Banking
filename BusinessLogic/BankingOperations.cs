@@ -197,6 +197,7 @@ namespace Banking.BusinessLogic
                     break;
             }
             db.SaveChanges();
+
         }
 
         public void AccrualInterest()
@@ -230,7 +231,6 @@ namespace Banking.BusinessLogic
                         credit.Money += (credit.Money * credit.InterestRate) / 100;
                         credit.LastDateAccrued = credit.LastDateAccrued.AddDays(30);
                     }
-
                 }
                 db.Repository<CreditEntity>().UpdateRange(credits);
                 db.SaveChanges();

@@ -91,11 +91,6 @@
     <Compile Include="Forms\SendMoneyForm.Designer.cs">
       <DependentUpon>SendMoneyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709140848530_DBMigration.cs" />
-    <Compile Include="Migrations\201709140848530_DBMigration.Designer.cs">
-      <DependentUpon>201709140848530_DBMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entity\CreditEntity.cs" />
     <Compile Include="Entity\AccountEntity.cs" />
     <Compile Include="Entity\DepositEntity.cs" />
@@ -123,9 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SendMoneyForm.resx">
       <DependentUpon>SendMoneyForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709140848530_DBMigration.resx">
-      <DependentUpon>201709140848530_DBMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -161,6 +153,9 @@
     <Content Include="Images\Laptop_and_credit card2.jpg" />
     <Content Include="Images\Laptop and Cup.jpg" />
     <Content Include="Images\Getting_cash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

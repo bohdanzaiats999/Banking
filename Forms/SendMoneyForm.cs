@@ -25,5 +25,27 @@ namespace Banking.Forms
             this.type = type;
             this.selectedIndex = selectedIndex;
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new ControlPanelForm(bankingOperations).Show();
+        }
+
+        private void SendButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bankingOperations.SendMoney(AmountTextBox.Text, type, selectedIndex, ToTheCardTextBox.Text);
+                AmountTextBox.Text = string.Empty;
+                MessageBox.Show("Complete");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }

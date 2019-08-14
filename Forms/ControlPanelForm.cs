@@ -52,6 +52,7 @@ namespace Banking.Forms
         {
             return number.Insert(4, " ").Insert(9, " ").Insert(14, " ");
         }
+
         private void AddAccountButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -169,11 +170,11 @@ namespace Banking.Forms
         {
             try
             {
+                AccountType type;
                 if (ChooseNumberСomboBox.SelectedIndex == -1)
                 {
                     throw new Exception("Choose number");
                 }
-                AccountType type;
                 switch (ChooseAccountСomboBox.SelectedIndex)
                 {
                     case 0:
