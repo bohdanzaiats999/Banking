@@ -266,7 +266,7 @@ namespace Banking.BusinessLogic
             }
         }
 
-        public void SendMoney(string money, AccountType type, int index, string payeeNumber)
+        public void SendMoney(string money, int index, string payeeNumber)
         {
             decimal sendMoney = decimal.Parse(money);
 
@@ -278,63 +278,23 @@ namespace Banking.BusinessLogic
             {
                 throw new Exception("Fill in the number field");
             }
-            switch (type)
+
+            var accountRecipient = db.Repository<AccountEntity>().GetAccountByNumber(payeeNumber);
+            if (accountRecipient == null)
             {
-                case AccountType.Account:
-                    var accountRecipient = db.Repository<AccountEntity>().GetAccountByNumber(payeeNumber);
+                throw new Exception("User not found");
+            }
+            var accounts = db.Repository<AccountEntity>().GetAccountsListById(userId);
+            if (accounts.ToList()[index].Money > sendMoney)
+            {
+                accounts.ToList()[index].Money -= sendMoney;
+                accountRecipient.Money += sendMoney;
 
-                    if (accountRecipient == null)
-                    {
-                        throw new Exception("User not found");
-                    }
-                    var accounts = db.Repository<AccountEntity>().GetAccountsListById(userId);
-                    if (accounts.ToList()[index].Money > sendMoney)
-                    {
-                        accounts.ToList()[index].Money -= sendMoney;
-                        accountRecipient.Money += sendMoney;
-
-                        db.Repository<AccountEntity>().UpdateRange(accounts);
-                        db.Repository<AccountEntity>().Update(accountRecipient);
-                        db.SaveChanges();
-                    }
-                    break;
-                case AccountType.Deposit:
-                    var depositRecipient = db.Repository<DepositEntity>().GetDepositByNumber(payeeNumber);
-
-                    if (depositRecipient == null)
-                    {
-                        throw new Exception("User not found");
-                    }
-                    var deposits = db.Repository<DepositEntity>().GetDepositListById(userId);
-                    if (deposits.ToList()[index].Money > sendMoney)
-                    {
-                        deposits.ToList()[index].Money -= sendMoney;
-                        depositRecipient.Money += sendMoney;
-
-                        db.Repository<DepositEntity>().UpdateRange(deposits);
-                        db.Repository<DepositEntity>().Update(depositRecipient);
-                        db.SaveChanges();
-                    }
-                    break;
-                case AccountType.Credit:
-                    var creditRecipient = db.Repository<CreditEntity>().GetCreditByNumber(payeeNumber);
-
-                    if (creditRecipient == null)
-                    {
-                        throw new Exception("User not found");
-                    }
-                    var credits = db.Repository<CreditEntity>().GetCreditListById(userId);
-                    if (credits.ToList()[index].Money > sendMoney)
-                    {
-                        credits.ToList()[index].Money -= sendMoney;
-                        creditRecipient.Money += sendMoney;
-
-                        db.Repository<CreditEntity>().UpdateRange(credits);
-                        db.Repository<CreditEntity>().Update(creditRecipient);
-                        db.SaveChanges();
-                    }
-                    break;
+                db.Repository<AccountEntity>().UpdateRange(accounts);
+                db.Repository<AccountEntity>().Update(accountRecipient);
+                db.SaveChanges();
             }
         }
     }
 }
+

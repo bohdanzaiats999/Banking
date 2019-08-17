@@ -40,7 +40,7 @@
             // 
             this.ToTheCardTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.ToTheCardTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ToTheCardTextBox.Location = new System.Drawing.Point(89, 88);
+            this.ToTheCardTextBox.Location = new System.Drawing.Point(101, 89);
             this.ToTheCardTextBox.MaximumSize = new System.Drawing.Size(300, 30);
             this.ToTheCardTextBox.MaxLength = 100;
             this.ToTheCardTextBox.Name = "ToTheCardTextBox";
@@ -51,7 +51,7 @@
             // 
             this.AmountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.AmountTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AmountTextBox.Location = new System.Drawing.Point(137, 186);
+            this.AmountTextBox.Location = new System.Drawing.Point(149, 187);
             this.AmountTextBox.MaximumSize = new System.Drawing.Size(300, 30);
             this.AmountTextBox.MaxLength = 100;
             this.AmountTextBox.Name = "AmountTextBox";
@@ -61,7 +61,7 @@
             // SendButton
             // 
             this.SendButton.BackColor = System.Drawing.Color.Transparent;
-            this.SendButton.Location = new System.Drawing.Point(149, 285);
+            this.SendButton.Location = new System.Drawing.Point(162, 285);
             this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(93, 32);
             this.SendButton.TabIndex = 4;
@@ -74,7 +74,7 @@
             this.ToTheCardLabel.AutoSize = true;
             this.ToTheCardLabel.BackColor = System.Drawing.Color.Transparent;
             this.ToTheCardLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ToTheCardLabel.Location = new System.Drawing.Point(121, 54);
+            this.ToTheCardLabel.Location = new System.Drawing.Point(133, 55);
             this.ToTheCardLabel.MinimumSize = new System.Drawing.Size(5, 5);
             this.ToTheCardLabel.Name = "ToTheCardLabel";
             this.ToTheCardLabel.Size = new System.Drawing.Size(151, 31);
@@ -86,7 +86,7 @@
             this.AmountLabel.AutoSize = true;
             this.AmountLabel.BackColor = System.Drawing.Color.Transparent;
             this.AmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AmountLabel.Location = new System.Drawing.Point(143, 152);
+            this.AmountLabel.Location = new System.Drawing.Point(155, 153);
             this.AmountLabel.MinimumSize = new System.Drawing.Size(5, 5);
             this.AmountLabel.Name = "AmountLabel";
             this.AmountLabel.Size = new System.Drawing.Size(107, 31);
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Banking.Properties.Resources.icon_web_2x;
+            this.BackgroundImage = global::Banking.Properties.Resources.Internet_banking1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(403, 329);
             this.Controls.Add(this.BackButton);

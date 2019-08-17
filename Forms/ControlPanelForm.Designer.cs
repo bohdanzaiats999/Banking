@@ -136,7 +136,6 @@
             this.MoneyStatusLabel.AutoSize = true;
             this.MoneyStatusLabel.BackColor = System.Drawing.Color.Transparent;
             this.MoneyStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.MoneyStatusLabel.ForeColor = System.Drawing.SystemColors.MenuText;
             this.MoneyStatusLabel.Location = new System.Drawing.Point(469, 229);
             this.MoneyStatusLabel.Name = "MoneyStatusLabel";
             this.MoneyStatusLabel.Size = new System.Drawing.Size(51, 31);
@@ -236,7 +235,7 @@
             this.Controls.Add(this.AddAccountButton);
             this.Name = "ControlPanelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Control Panel";
+            this.Text = "ControlPanelForm";
             this.ChooseAccountGroupBox.ResumeLayout(false);
             this.ChooseAccountGroupBox.PerformLayout();
             this.InterestRateGroupBox.ResumeLayout(false);

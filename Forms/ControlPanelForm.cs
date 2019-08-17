@@ -15,6 +15,7 @@ namespace Banking.Forms
     partial class ControlPanelForm : Form
     {
         private BankingOperations bankingOperations;
+        AccountType type;
 
         public ControlPanelForm(BankingOperations bankingOperations)
         {
@@ -142,21 +143,7 @@ namespace Banking.Forms
                 {
                     throw new Exception("Choose number");
                 }
-                AccountType type;
-                switch (ChooseAccountСomboBox.SelectedIndex)
-                {
-                    case 0:
-                        type = AccountType.Account;
-                        break;
-                    case 1:
-                        type = AccountType.Deposit;
-                        break;
-                    case 2:
-                        type = AccountType.Credit;
-                        break;
-                    default:
-                        throw new Exception("Choose account");
-                }
+                CheckAccountType();
                 new RefillAccountForm(bankingOperations, type, ChooseNumberСomboBox.SelectedIndex).Show();
                 this.Close();
             }
@@ -166,31 +153,41 @@ namespace Banking.Forms
             }
         }
 
+        private void CheckAccountType()
+        {
+            switch (ChooseAccountСomboBox.SelectedIndex)
+            {
+                case 0:
+                    type = AccountType.Account;
+                    break;
+                case 1:
+                    type = AccountType.Deposit;
+                    break;
+                case 2:
+                    type = AccountType.Credit;
+                    break;
+                default:
+                    throw new Exception("Choose account");
+            }
+        }
         private void SendMoneyButton_Click(object sender, EventArgs e)
         {
             try
             {
-                AccountType type;
                 if (ChooseNumberСomboBox.SelectedIndex == -1)
                 {
                     throw new Exception("Choose number");
                 }
-                switch (ChooseAccountСomboBox.SelectedIndex)
+                CheckAccountType();
+                if (type == AccountType.Account)
                 {
-                    case 0:
-                        type = AccountType.Account;
-                        break;
-                    case 1:
-                        type = AccountType.Deposit;
-                        break;
-                    case 2:
-                        type = AccountType.Credit;
-                        break;
-                    default:
-                        throw new Exception("Choose account");
-                }
-                new SendMoneyForm(bankingOperations, type, ChooseNumberСomboBox.SelectedIndex).Show();
+                new SendMoneyForm(bankingOperations, ChooseNumberСomboBox.SelectedIndex).Show();
                 this.Close();
+                }
+                else
+                {
+                    throw new Exception("Please choose current account");
+                }
 
             }
             catch (Exception ex)

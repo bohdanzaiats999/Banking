@@ -18,11 +18,10 @@ namespace Banking.Forms
         private AccountType type;
         private int selectedIndex;
 
-        public SendMoneyForm(BankingOperations bankingOperations, AccountType type, int selectedIndex)
+        public SendMoneyForm(BankingOperations bankingOperations, int selectedIndex)
         {
             InitializeComponent();
             this.bankingOperations = bankingOperations;
-            this.type = type;
             this.selectedIndex = selectedIndex;
         }
 
@@ -36,7 +35,7 @@ namespace Banking.Forms
         {
             try
             {
-                bankingOperations.SendMoney(AmountTextBox.Text, type, selectedIndex, ToTheCardTextBox.Text);
+                bankingOperations.SendMoney(AmountTextBox.Text, selectedIndex, ToTheCardTextBox.Text);
                 AmountTextBox.Text = string.Empty;
                 MessageBox.Show("Complete");
 
