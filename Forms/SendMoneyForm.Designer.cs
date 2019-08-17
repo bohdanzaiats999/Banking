@@ -107,6 +107,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Banking.Properties.Resources.icon_web_2x;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(403, 329);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AmountLabel);
@@ -115,7 +117,8 @@
             this.Controls.Add(this.AmountTextBox);
             this.Controls.Add(this.ToTheCardTextBox);
             this.Name = "SendMoneyForm";
-            this.Text = "SendMoneyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Send Money";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -118,6 +118,7 @@
             // 
             // ChooseAccountGroupBox
             // 
+            this.ChooseAccountGroupBox.BackColor = System.Drawing.Color.Transparent;
             this.ChooseAccountGroupBox.Controls.Add(this.ChooseAccountСomboBox);
             this.ChooseAccountGroupBox.Controls.Add(this.ChooseAccuntLabel);
             this.ChooseAccountGroupBox.Controls.Add(this.ChooseNumberСomboBox);
@@ -125,7 +126,7 @@
             this.ChooseAccountGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ChooseAccountGroupBox.Location = new System.Drawing.Point(12, 4);
             this.ChooseAccountGroupBox.Name = "ChooseAccountGroupBox";
-            this.ChooseAccountGroupBox.Size = new System.Drawing.Size(430, 96);
+            this.ChooseAccountGroupBox.Size = new System.Drawing.Size(430, 78);
             this.ChooseAccountGroupBox.TabIndex = 7;
             this.ChooseAccountGroupBox.TabStop = false;
             this.ChooseAccountGroupBox.Text = "Choose Account";
@@ -133,7 +134,9 @@
             // MoneyStatusLabel
             // 
             this.MoneyStatusLabel.AutoSize = true;
+            this.MoneyStatusLabel.BackColor = System.Drawing.Color.Transparent;
             this.MoneyStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.MoneyStatusLabel.ForeColor = System.Drawing.SystemColors.MenuText;
             this.MoneyStatusLabel.Location = new System.Drawing.Point(469, 229);
             this.MoneyStatusLabel.Name = "MoneyStatusLabel";
             this.MoneyStatusLabel.Size = new System.Drawing.Size(51, 31);
@@ -143,6 +146,7 @@
             // MoneyInfoLabel
             // 
             this.MoneyInfoLabel.AutoSize = true;
+            this.MoneyInfoLabel.BackColor = System.Drawing.Color.Transparent;
             this.MoneyInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.MoneyInfoLabel.Location = new System.Drawing.Point(169, 229);
             this.MoneyInfoLabel.Name = "MoneyInfoLabel";
@@ -178,7 +182,7 @@
             this.InterestRateGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Inch, ((byte)(204)));
             this.InterestRateGroupBox.Location = new System.Drawing.Point(166, 287);
             this.InterestRateGroupBox.Name = "InterestRateGroupBox";
-            this.InterestRateGroupBox.Size = new System.Drawing.Size(245, 58);
+            this.InterestRateGroupBox.Size = new System.Drawing.Size(390, 58);
             this.InterestRateGroupBox.TabIndex = 12;
             this.InterestRateGroupBox.TabStop = false;
             this.InterestRateGroupBox.Visible = false;
@@ -218,6 +222,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.BackgroundImage = global::Banking.Properties.Resources._29015;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(769, 441);
             this.Controls.Add(this.SendMoneyButton);
             this.Controls.Add(this.RefillAccountButton);
@@ -230,7 +236,7 @@
             this.Controls.Add(this.AddAccountButton);
             this.Name = "ControlPanelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ControlPanelForm";
+            this.Text = "Control Panel";
             this.ChooseAccountGroupBox.ResumeLayout(false);
             this.ChooseAccountGroupBox.PerformLayout();
             this.InterestRateGroupBox.ResumeLayout(false);

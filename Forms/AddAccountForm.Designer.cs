@@ -74,7 +74,7 @@
             // 
             this.BackButton.Location = new System.Drawing.Point(12, 285);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(75, 23);
+            this.BackButton.Size = new System.Drawing.Size(75, 29);
             this.BackButton.TabIndex = 2;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             // 
             this.AddAccountButton.Location = new System.Drawing.Point(396, 285);
             this.AddAccountButton.Name = "AddAccountButton";
-            this.AddAccountButton.Size = new System.Drawing.Size(98, 23);
+            this.AddAccountButton.Size = new System.Drawing.Size(98, 29);
             this.AddAccountButton.TabIndex = 3;
             this.AddAccountButton.Text = "Add Account";
             this.AddAccountButton.UseVisualStyleBackColor = true;
@@ -92,6 +92,7 @@
             // 
             // DepositGroupBox
             // 
+            this.DepositGroupBox.BackColor = System.Drawing.Color.Transparent;
             this.DepositGroupBox.Controls.Add(this.DepositInterestRate15RadioButton);
             this.DepositGroupBox.Controls.Add(this.DepositInterestRate25RadioButton);
             this.DepositGroupBox.Controls.Add(this.DepositMoneyLabel);
@@ -155,6 +156,7 @@
             // 
             // CreditGroupBox
             // 
+            this.CreditGroupBox.BackColor = System.Drawing.Color.Transparent;
             this.CreditGroupBox.Controls.Add(this.CreditAvailabilityCollateralCheckBox);
             this.CreditGroupBox.Controls.Add(this.CreditMonthlyPaymentLabel);
             this.CreditGroupBox.Controls.Add(this.CreditMonthlyPaymentTextBox);
@@ -165,7 +167,7 @@
             this.CreditGroupBox.Controls.Add(this.CreditMoneyTextBox);
             this.CreditGroupBox.Location = new System.Drawing.Point(45, 69);
             this.CreditGroupBox.Name = "CreditGroupBox";
-            this.CreditGroupBox.Size = new System.Drawing.Size(371, 210);
+            this.CreditGroupBox.Size = new System.Drawing.Size(229, 189);
             this.CreditGroupBox.TabIndex = 6;
             this.CreditGroupBox.TabStop = false;
             this.CreditGroupBox.Text = "Credit";
@@ -174,7 +176,7 @@
             // CreditAvailabilityCollateralCheckBox
             // 
             this.CreditAvailabilityCollateralCheckBox.AutoSize = true;
-            this.CreditAvailabilityCollateralCheckBox.Location = new System.Drawing.Point(137, 105);
+            this.CreditAvailabilityCollateralCheckBox.Location = new System.Drawing.Point(6, 149);
             this.CreditAvailabilityCollateralCheckBox.Name = "CreditAvailabilityCollateralCheckBox";
             this.CreditAvailabilityCollateralCheckBox.Size = new System.Drawing.Size(121, 17);
             this.CreditAvailabilityCollateralCheckBox.TabIndex = 8;
@@ -250,6 +252,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Banking.Properties.Resources._48cba3ab;
             this.ClientSize = new System.Drawing.Size(506, 320);
             this.Controls.Add(this.CreditGroupBox);
             this.Controls.Add(this.DepositGroupBox);
@@ -257,7 +260,8 @@
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.ChooseAccountСomboBox);
             this.Name = "AddAccountForm";
-            this.Text = "AddAccountForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Add Account";
             this.DepositGroupBox.ResumeLayout(false);
             this.DepositGroupBox.PerformLayout();
             this.CreditGroupBox.ResumeLayout(false);
